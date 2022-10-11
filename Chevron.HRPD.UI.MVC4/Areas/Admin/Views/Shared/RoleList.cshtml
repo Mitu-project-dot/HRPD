@@ -1,0 +1,12 @@
+﻿@model Chevron.ITRC_iDACS.UI.Areas.Admin.ViewModels.UserViewModel
+        <div class="editor-label">
+            <label>Roles</label>
+        </div>
+        <div class="checkboxes">        
+
+            @foreach (Role role in Model.roles)
+            {
+                bool check = Model.user.Roles.Any(r => r.ID == role.ID);
+                <label><input type="checkbox" name="role" @(check?"checked" : "") value="@role.ID" /><span>@role.RoleName</span></label>
+            }
+        </div>

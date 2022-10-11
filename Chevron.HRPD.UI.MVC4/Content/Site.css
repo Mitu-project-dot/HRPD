@@ -1,0 +1,556 @@
+﻿/* TABLES
+----------------------------------------------------------*/
+Table.infoTbl {
+    margin-bottom: 0px !important;
+}
+
+Table.infoTblEdit input {
+    width: 120px;
+}
+
+.ZiATable {
+}
+
+    .ZiATable TD, .ZiATable TH {
+        padding: 8px 15px;
+        color: #555;
+        font-size: 9pt;
+    }
+
+    .ZiATable TD {
+        font-weight: bold;
+        width: 100%;
+        line-height: 1.6em;
+    }
+
+    .ZiATable TH {
+        background: #f8f8f8;
+        font-weight: normal;
+        vertical-align: top;
+        text-transform: none;
+        text-align: right;
+        width: 45%;
+    }
+
+        .ZiATable TH label {
+            font-weight: normal;
+            margin: 0;
+            color: #555;
+        }
+
+Table.bigForm {
+    width: 100%;
+}
+
+.bigForm input[type=text] {
+    width: 90%;
+}
+
+.bigForm TH {
+    width: 180px;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.bigForm TD {
+    width: auto;
+}
+
+TD.bigForm input[type=text] {
+    width: 90%;
+}
+
+TD.notice {
+    background: url(Images/exclamation.png) no-repeat 4px center;
+    padding-left: 24px !important;
+}
+
+TD.detailColumn {
+}
+
+    TD.detailColumn a {
+        display: block;
+        padding: 4px 0;
+        background: url(Images/details.png) no-repeat 5px center;
+        padding-left: 24px !important;
+    }
+
+.ZiATblHead TH {
+    min-width: 5px;
+}
+
+.ZiATblHead TD {
+    width: auto;
+}
+
+/*
+.ZiADisplay, .ZiADisplay tbody { border: 0px; background: transparent; }
+.ZiADisplay TD, .ZiADisplay TH { padding: 6px 10px; background: transparent; color: #555; border-width: 0px; font-size: 9pt; vertical-align: top; border-top: 1px solid #ccc !important; border-bottom: 1px solid #ccc; }
+.ZiADisplay TD { font-weight: normal; line-height: 1.5em; vertical-align: middle; }
+.ZiADisplay TH { font-weight: normal; text-align: right; width: 1%; white-space: nowrap; text-transform: none; border-right: 1px solid #ccc; background: #EBF7FC; }
+.ZiADisplay TH label { font-weight: normal; border-width: 0px; margin: 0; padding: 0; }
+    */
+
+.ZiADisplay, .ZiADisplay tbody {
+    border: 0px;
+    background: transparent;
+}
+
+.ZiADisplay {
+    border-collapse: separate !important;
+    border-spacing: 3px;
+}
+
+    .ZiADisplay TH {
+        padding: 6px 10px;
+        background: transparent;
+        color: #555;
+        border-width: 0px;
+        font-size: 9pt;
+        vertical-align: top;
+    }
+
+    .ZiADisplay TD {
+        font-weight: normal;
+        line-height: 1.5em;
+        vertical-align: middle;
+        background: #f8f8f8;
+    }
+
+    .ZiADisplay TH {
+        font-weight: normal;
+        text-align: right;
+        width: 1%;
+        white-space: nowrap;
+        text-transform: none;
+    }
+
+        .ZiADisplay TH label {
+            font-weight: normal;
+            border-width: 0px;
+            margin: 0;
+            padding: 0;
+        }
+
+table.noborder, .noborder tbody, .noborder TD, .noborder TH {
+    border: 0px solid #fff !important;
+}
+
+.twocol_left {
+    width: 50%;
+    float: left;
+}
+
+.twocol_right {
+    width: 49%;
+    margin-left: 1%;
+    float: left;
+}
+
+thead th {
+    color: #555;
+    font-weight: bold;
+}
+
+.blank {
+    border: none !important;
+    border-collapse: separate;
+}
+
+    .blank td {
+        font-size: 9pt;
+        padding: 8px 4px;
+        border: 2px solid #fff;
+    }
+
+/* Table Paging  
+----------------------------------------------------------*/
+
+div.pager {
+    text-align: right;
+    margin: -10px 0 0 0;
+}
+
+    div.pager span {
+        display: inline-block;
+        width: 1.4em;
+        height: 1.4em;
+        line-height: 1.5em;
+        text-align: center;
+        cursor: pointer;
+        background: #ededed;
+        color: #555;
+        margin-right: 5px;
+    }
+
+        div.pager span.active {
+            background: #009dd9;
+            color: #fff;
+        }
+
+
+/* MISC  
+----------------------------------------------------------*/
+h4 {
+    font-size: 1.3em;
+    font-weight: normal;
+}
+
+#band {
+    background-color: #DDE1D2;
+}
+
+#sitename {
+    margin-top: -5px;
+}
+
+#sitenameTitle {
+    font-size: 22pt;
+    color: #009dd9;
+    letter-spacing: -.020em;
+}
+
+    #sitenameTitle span {
+        color: Red;
+    }
+
+#sitenameDesc {
+    margin-top: 1px;
+    margin-left: 0pt;
+    font-size: 10pt;
+    color: #22272E;
+    letter-spacing: -0.030em;
+}
+
+#orgTable td a {
+    display: block;
+}
+
+#overlay-content {
+    background: #fff;
+}
+
+.strike a {
+    text-decoration: line-through !important;
+    color: red !important;
+}
+
+a.close {
+    cursor: pointer;
+}
+
+.contentBox {
+    border: 1px solid #ccc;
+}
+
+    .contentBox .contentHead {
+        text-align: center;
+        padding: 10px;
+        color: #555;
+        font-weight: bold;
+        border-bottom: 1px solid #ccc;
+        background: #f8f8f8;
+    }
+
+.dateBox {
+    text-align: center;
+    border: 1px solid #009dd9;
+    width: 36px;
+    color: #555;
+    background: #f0f0f0;
+    padding: 2px;
+    line-height: 1.4em;
+}
+
+    .dateBox hr {
+        margin: 1px 0;
+        border: 0px;
+        border-top: 1px solid #009dd9;
+    }
+
+#topnav a {
+    padding: 7px 11px 0;
+}
+
+    #topnav a.selected {
+    }
+
+abbr {
+    border-bottom: 1px dotted #009dd9;
+    cursor: help;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.clear {
+    clear: both;
+}
+
+.center {
+    text-align: center;
+}
+
+.highlight {
+    color: #e60000 !important;
+}
+
+.tabbed ul.tabs li a.highlight {
+    color: #e60000 !important;
+}
+
+p.highlight {
+    margin: 5px 0 0 0 !important;
+    display: inline-block;
+}
+
+p.details {
+    border: 1px solid #9abffe;
+    padding: 10px 10px 10px 52px;
+    margin: 25px 0 0 0;
+    color: #555;
+    background: #f8f8f8 url(Images/info_32.png) no-repeat 10px center;
+}
+
+a.btnEdit {
+    background: url(Images/pencil.png) no-repeat center center;
+    width: 16px;
+    height: 16px;
+    padding: 8px;
+    border: 1px solid red;
+}
+
+#NominationStatus {
+    display: inline-block;
+    width: 210px;
+    float: right;
+}
+
+    #NominationStatus p {
+        display: inline-block;
+        width: 40px;
+        padding: 2px 0 0 0;
+        margin: 0;
+    }
+
+    #NominationStatus div {
+        display: inline-block;
+        width: 150px;
+        float: right;
+        padding: 5px;
+        text-align: center;
+    }
+
+    #NominationStatus .new {
+        background: #dbe3ff;
+        border: 1px solid #2677ac;
+        color: #585b66;
+    }
+
+    #NominationStatus .pending {
+        background: #ffcece;
+        border: 1px solid #df8f8f;
+        color: #665252;
+    }
+
+    #NominationStatus .finalizing {
+        background: #fffbcc;
+        border: 1px solid #e6db55;
+        color: #585b66;
+    }
+
+    #NominationStatus .complete {
+        background: #eff8d4;
+        border: 1px solid #090;
+        color: #556652;
+    }
+
+#ProcessingNotes {
+    border: 1px solid #ddd;
+    background: #f3f3f3;
+    padding: 10px;
+    overflow: auto;
+    max-height: 200px;
+    line-height: 1.5em;
+}
+
+div.letter a {
+    background: url(Images/document_16.png) no-repeat 6px center;
+    padding: 6px 6px 6px 26px;
+    display: inline-block;
+}
+
+div.letter:hover {
+    text-decoration: none;
+    background-color: #f1f1f1;
+}
+
+div.letter span a {
+    background: none;
+    border: 1px solid #fff;
+    padding: 3px;
+    margin-top: 1px;
+}
+
+    div.letter span a:hover {
+        background: #fff;
+        border: 1px solid #009dd9;
+    }
+
+div.highlightbox {
+    border: 1px solid #009dd9;
+}
+
+    div.highlightbox p {
+        margin: 10px;
+        font-style: italic;
+        font-size: 10pt;
+    }
+
+    div.highlightbox div.buttons {
+        margin: 10px;
+    }
+
+    div.highlightbox div.highlightheader {
+        background: #009dd9;
+        color: #fff;
+        font-size: 10pt;
+        text-align: center;
+        padding: 10px;
+    }
+
+#column1 {
+    width: 165px;
+}
+
+#column2 {
+    width: 755px;
+    margin-left: -760px;
+}
+
+
+.clear {
+    clear: both;
+}
+
+.error, .field-validation-error, .validation-summary-errors {
+    /*color: #E23064;*/
+    
+    
+    /*position: relative;*/
+    left: 407px;
+    width: 187px;
+    bottom: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-color: #ffffff;
+    background-color: #FFCCCC;
+    color: #000000; 
+    border-radius: 5px;
+    width: 193px;
+    height:35px;
+    z-index: 100;
+}
+
+.input-validation-error {
+    border: 1px solid #D21034;
+    background-color: #FFaaaa;
+    color: #FFFFFF;
+}
+
+.label, .validation-summary-errors {
+    font-weight: bold;
+}
+
+select {
+    padding: 3px 4px;
+}
+
+option {
+    padding: 1px 4px;
+}
+
+input[type="text"], textarea {
+    padding: 3px;
+}
+
+input[type="submit"] {
+    padding: 2px 5px;
+}
+
+
+select.register {
+    width: 200px;
+}
+
+/* grid view header */
+th {
+    color: #FFF;
+    /*background-color: #3092c0;*/
+    background-color: #82bdd9;
+    font-weight: bold;    
+}
+
+fieldset {
+}
+
+    fieldset legend {
+        font-size: 110%;
+        padding: 0 5px 5px 5px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    fieldset label {
+        margin: 2px;
+    }
+
+    fieldset span {
+        margin: 0 0 0 3px;
+        display: inline-block;
+    }
+
+img {
+    border-style: none;
+}
+
+.editor-label {
+    margin: 10px 0 0 0;
+    padding: 0 0 2px 0;
+}
+
+.editor-field {
+    margin: 0 0 15px 0;
+    padding: 0px;
+}
+
+.display-label {
+    margin: 10px 0 0 0;
+}
+
+    .display-label label {
+        font-weight: normal;
+    }
+
+.display-field {
+    margin: 5px 0 15px 0;
+    font-weight: bold;
+}
+
+    .display-field ul {
+        padding-left: 15px;
+    }
+
+    .display-field li {
+        font-weight: normal;
+    }
+
+    .display-field p {
+        font-weight: normal;
+        padding-left: 15px;
+        font-style: italic;
+    }
+
+.round4 {
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}

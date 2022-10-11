@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://chevron.com/CVX_EDA_GPDA_WS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://chevron.com/CVX_EDA_GPDA_WS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://chevron.com/CVX_EDA_GPDA_WS">
+      <s:element name="objDirectReports">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InputParamCollection" type="tns:InputParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InputParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chevron_Primary_Email_Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LookupMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group_DN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Person_Unique_Identifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalPersonHomeID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HRSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="objDirectReportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objDirectReportsResult" type="tns:ArrayOfDirectReports" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDirectReports">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DirectReports" nillable="true" type="tns:DirectReports" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DirectReports">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Business_Long_Distance_Phone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chevron_Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTN_Phone_Number" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="objAlternateRecipient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InputParamCollection" type="tns:InputParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objAlternateRecipientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objAlternateRecipientResult" type="tns:AlternateRecipient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AlternateRecipient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chevron_Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="objSystemInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InputParamCollection" type="tns:InputParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objSystemInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objSystemInfoResult" type="tns:SystemInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SystemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chevron_Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chevron_Logon_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeDirectory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LegacyExchangeDN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailNickName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSExchHomeServerName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="objOrganizationalInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InputParamCollection" type="tns:InputParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objOrganizationalInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objOrganizationalInfoResult" type="tns:OrganizationInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OrganizationInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Person_Unique_Identifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Person_Relationship_Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Approver_CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chevron_Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HR_Billing_Cost_Center" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group_Long_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Supervisor_CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Team_Long_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Work_Company_Long_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Work_Company_Short_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Business_Segment_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Business_Segment_Long_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Business_Segment_Short_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Work_Company_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Employee_Reporting_Unit_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Employee_Reporting_Unit_Long_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Employee_Reporting_Unit_Short_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group_Short_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Primary_Organization_Long_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Primary_Organization_Short_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Organization_Unit_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Organization_Unit_Short_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Organization_Unit_Long_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Primary_Organization_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rollup_Reporting_Unit_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rollup_Reporting_Unit_Short_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rollup_Reporting_Unit_Long_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Summary_Reporting_Unit_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Summary_Reporting_Unit_Long_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Summary_Reporting_Unit_Short_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Supervisor_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Team_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Team_Short_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Local_Person_Home_ID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="objADGroupMemberList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InputParamCollection" type="tns:InputParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objADGroupMemberListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objADGroupMemberListResult" type="tns:ArrayOfADGroupMemberList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfADGroupMemberList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ADGroupMemberList" nillable="true" type="tns:ADGroupMemberList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ADGroupMemberList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chevron_Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="objBillingAndSourcingInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InputParamCollection" type="tns:InputParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objBillingAndSourcingInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objBillingAndSourcingInfoResult" type="tns:BillingAndSourcingInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BillingAndSourcingInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Provisioning_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Business_Long_Distance_Phone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Approver_DN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Approver_CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chevron_Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contractor_Company" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTN_Phone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HR_Billing_Cost_Center" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HR_Billing_Company_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IT_Billing_Company_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IT_Billing_Company_Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IT_Billing_Cost_Center" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="objContactInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InputParamCollection" type="tns:InputParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objContactInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objContactInfoResult" type="tns:ContactInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ContactInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_CTN_Phone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Fax_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Long_Distance_Phone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Building_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Business_Long_Distance_Phone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cellphone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chevron_Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTN_Phone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Display_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Facility_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Initials" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail_Address_Line1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail_Address_Line2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail_Building_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail_City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail_Country_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail_Country_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail_Postal_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail_State_Province_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail_State_Province_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail_Suite_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Person_Relationship_Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Physical_Delivery_Office_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Postal_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Preferred_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Preferred_Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Room_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State_Province_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State_Province_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Suite_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Work_Country_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Work_Country_Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="objIsUserMemberOfGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InputParamCollection" type="tns:InputParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objIsUserMemberOfGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="objIsUserMemberOfGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objCAIByLocalPersonIDandHRSource">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InputParamCollection" type="tns:InputParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objCAIByLocalPersonIDandHRSourceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objCAIByLocalPersonIDandHRSourceResult" type="tns:CAIByLocalPersonHomeIDandHRSource" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CAIByLocalPersonHomeIDandHRSource">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CAI" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="objgetPeoplebySearchCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InputParamCollection" type="tns:InputParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objgetPeoplebySearchCollectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objgetPeoplebySearchCollectionResult" type="tns:ArrayOfPeoplebySearchCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPeoplebySearchCollection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PeoplebySearchCollection" nillable="true" type="tns:PeoplebySearchCollection" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PeoplebySearchCollection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Initials" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Work_Company_Short_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Room_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Facility_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTN_Phone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Business_Long_Distance_Phone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chevron_Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="objAlternateContactInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InputParamCollection" type="tns:InputParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="objAlternateContactInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objAlternateContactInfoResult" type="tns:AlternateContactInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AlternateContactInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Chevron_EMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Building_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Country_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_CTN_Phone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Facility_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Fax_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Long_Distance_Phone_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Mail_Address_Line1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Mail_Address_Line2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Mail_Building_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Mail_City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Mail_Country_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Mail_Postal_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Mail_State_Province_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Mail_State_Province_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Mail_Suite_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Postal_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Room_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_State_Province_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_State_Province_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Street1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Street2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Suite_Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternate_Work_Country_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Display_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Initials" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Preferred_Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="objDirectReportsSoapIn">
+    <wsdl:part name="parameters" element="tns:objDirectReports" />
+  </wsdl:message>
+  <wsdl:message name="objDirectReportsSoapOut">
+    <wsdl:part name="parameters" element="tns:objDirectReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="objAlternateRecipientSoapIn">
+    <wsdl:part name="parameters" element="tns:objAlternateRecipient" />
+  </wsdl:message>
+  <wsdl:message name="objAlternateRecipientSoapOut">
+    <wsdl:part name="parameters" element="tns:objAlternateRecipientResponse" />
+  </wsdl:message>
+  <wsdl:message name="objSystemInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:objSystemInfo" />
+  </wsdl:message>
+  <wsdl:message name="objSystemInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:objSystemInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="objOrganizationalInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:objOrganizationalInfo" />
+  </wsdl:message>
+  <wsdl:message name="objOrganizationalInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:objOrganizationalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="objADGroupMemberListSoapIn">
+    <wsdl:part name="parameters" element="tns:objADGroupMemberList" />
+  </wsdl:message>
+  <wsdl:message name="objADGroupMemberListSoapOut">
+    <wsdl:part name="parameters" element="tns:objADGroupMemberListResponse" />
+  </wsdl:message>
+  <wsdl:message name="objBillingAndSourcingInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:objBillingAndSourcingInfo" />
+  </wsdl:message>
+  <wsdl:message name="objBillingAndSourcingInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:objBillingAndSourcingInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="objContactInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:objContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="objContactInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:objContactInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="objIsUserMemberOfGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:objIsUserMemberOfGroup" />
+  </wsdl:message>
+  <wsdl:message name="objIsUserMemberOfGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:objIsUserMemberOfGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="objCAIByLocalPersonIDandHRSourceSoapIn">
+    <wsdl:part name="parameters" element="tns:objCAIByLocalPersonIDandHRSource" />
+  </wsdl:message>
+  <wsdl:message name="objCAIByLocalPersonIDandHRSourceSoapOut">
+    <wsdl:part name="parameters" element="tns:objCAIByLocalPersonIDandHRSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="objgetPeoplebySearchCollectionSoapIn">
+    <wsdl:part name="parameters" element="tns:objgetPeoplebySearchCollection" />
+  </wsdl:message>
+  <wsdl:message name="objgetPeoplebySearchCollectionSoapOut">
+    <wsdl:part name="parameters" element="tns:objgetPeoplebySearchCollectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="objAlternateContactInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:objAlternateContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="objAlternateContactInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:objAlternateContactInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GPDASoap">
+    <wsdl:operation name="getDirectReports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Input : CAI OR Person_Unique_Identifier&lt;br&gt; Process : Search directory by Supervisor's CAI or Supervisor's Person_Unique_Identifier and return their direct report's information &lt;br&gt; Output : Business_Long_Distance_Phone_Number,CAI,Chevron_Email,CTN_Phone_Number,First_Name,Last_Name as Object </wsdl:documentation>
+      <wsdl:input name="objDirectReports" message="tns:objDirectReportsSoapIn" />
+      <wsdl:output name="objDirectReports" message="tns:objDirectReportsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAlternateRecipient">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Input : CAI OR Person_Unique_Identifier&lt;br&gt; Process : Search directory by CAI or Person_Unique_Identifier and return alternate recipient's information &lt;br&gt; Output : CAI,Chevron_Email,First_Name,Last_Name as Object </wsdl:documentation>
+      <wsdl:input name="objAlternateRecipient" message="tns:objAlternateRecipientSoapIn" />
+      <wsdl:output name="objAlternateRecipient" message="tns:objAlternateRecipientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSystemInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Input : CAI OR LoginID OR Chevron_Primary_Email_Address OR Person_Unique_Identifier &lt;br&gt; Process : Search directory by CAI OR LoginID OR Chevron_Primary_Email_Address OR Person_Unique_Identifier and returns system information &lt;br&gt; Output :CAI,Chevron_Email,Chevron_Logon_ID,CN,DN,HomeDirectory,LegacyExchangeDN,MailNickName,MSExchHomeServerName as Object</wsdl:documentation>
+      <wsdl:input name="objSystemInfo" message="tns:objSystemInfoSoapIn" />
+      <wsdl:output name="objSystemInfo" message="tns:objSystemInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrganizationInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Input : CAI OR LoginID OR Chevron_Primary_Email_Address OR Person_Unique_Identifier&lt;br&gt; Process : Search directory by CAI OR LoginID OR Chevron_Primary_Email_Address OR Person_Unique_Identifier and returns organization information &lt;br&gt; Output : Approver_CAI,Business_Segment_Code,Business_Segment_Long_Name,Business_Segment_Short_Name,CAI,Chevron_Email,Employee_Reporting_Unit_Code,Employee_Reporting_Unit_Long_Name,Employee_Reporting_Unit_Short_Name,First_Name,Group_Code,Group_Long_Name,Group_Short_Name,HR_Billing_Cost_Center,Last_Name,Local_Person_Home_ID,Organization_Unit_Code,Organization_Unit_Long_Name,Organization_Unit_Short_Name,Person_Relationship_Type,Person_Unique_Identifier,Primary_Organization_Code,Primary_Organization_Long_Name,Primary_Organization_Short_Name,Rollup_Reporting_Unit_Code,Rollup_Reporting_Unit_Long_Name,Rollup_Reporting_Unit_Short_Name,Summary_Reporting_Unit_Code,Summary_Reporting_Unit_Long_Name,Summary_Reporting_Unit_Short_Name,Supervisor_CAI,Supervisor_ID,Team_Code,Team_Long_Name,Team_Short_Name,Work_Company_Code,Work_Company_Long_Name,Work_Company_Short_Name as Object</wsdl:documentation>
+      <wsdl:input name="objOrganizationalInfo" message="tns:objOrganizationalInfoSoapIn" />
+      <wsdl:output name="objOrganizationalInfo" message="tns:objOrganizationalInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getADGroupMemberList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Input : Group_Name OR Group_DN &lt;br&gt; Process : Return members of a particular AD Group &lt;br&gt; Output : CAI,Chevron_Email,DN,FirstName,LastName AS Object </wsdl:documentation>
+      <wsdl:input name="objADGroupMemberList" message="tns:objADGroupMemberListSoapIn" />
+      <wsdl:output name="objADGroupMemberList" message="tns:objADGroupMemberListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBillingAndSourcingInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Input : CAI OR LoginID OR Person_Unique_Identifier&lt;br&gt; Process : Returns billing and sourcing information &lt;br&gt; Output : Approver_CAI,Approver_DN,Business_Long_Distance_Phone_Number,CAI,Chevron_Email,Contractor_Company,CTN_Phone_Number,First_Name,HR_Billing_Company_Code,HR_Billing_Cost_Center,IT_Billing_Company_Code,IT_Billing_Company_Description,IT_Billing_Cost_Center,Last_Name,Provisioning_ID as Object</wsdl:documentation>
+      <wsdl:input name="objBillingAndSourcingInfo" message="tns:objBillingAndSourcingInfoSoapIn" />
+      <wsdl:output name="objBillingAndSourcingInfo" message="tns:objBillingAndSourcingInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getContactInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Input : CAI OR LoginID OR Person_Unique_Identifier&lt;br&gt; Process : Returns contact information for a person &lt;br&gt; Output : Alternate_CTN_Phone_Number,Alternate_Fax_Number,Alternate_Long_Distance_Phone_Number,Building_Name,Business_Long_Distance_Phone_Number,CAI,Cellphone_Number,Chevron_Email,City,CTN_Phone_Number,Display_Name,Facility_Code,Fax_Number,First_Name,Initials,Last_Name,Mail_Address_Line1,Mail_Address_Line2,Mail_Building_Name,Mail_City,Mail_Country_Code,Mail_Country_Name,Mail_Postal_Code,Mail_State_Province_Code,Mail_State_Province_Name,Mail_Suite_Number,Person_Relationship_Type,Physical_Delivery_Office_Name,Postal_Code,Preferred_Name,Preferred_Title,Room_Number,State_Province_Code,State_Province_Name,Street1,Street2,Suite_Number,Work_Country_Code,Work_Country_Name as Object</wsdl:documentation>
+      <wsdl:input name="objContactInfo" message="tns:objContactInfoSoapIn" />
+      <wsdl:output name="objContactInfo" message="tns:objContactInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserMemberOfGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Input : (CAI OR LoginID OR Person_Unique_Identifier) AND (Group_Name OR Group_DN) AND LookupMethod &lt;br&gt; Process : Returns a boolean value true if the user is member of that group else false</wsdl:documentation>
+      <wsdl:input name="objIsUserMemberOfGroup" message="tns:objIsUserMemberOfGroupSoapIn" />
+      <wsdl:output name="objIsUserMemberOfGroup" message="tns:objIsUserMemberOfGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCAIByLocalPersonHomeIDandHRSource">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Input : LocalPersonID and HRSource &lt;br&gt; Process : Search directory by LocalPersonID and HRSource, returns the CAI of the person &lt;br&gt; Output : CAI as Object</wsdl:documentation>
+      <wsdl:input name="objCAIByLocalPersonIDandHRSource" message="tns:objCAIByLocalPersonIDandHRSourceSoapIn" />
+      <wsdl:output name="objCAIByLocalPersonIDandHRSource" message="tns:objCAIByLocalPersonIDandHRSourceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPeoplebySearchCollection">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Input : First_Name and/or Last_Name &lt;br&gt; Process : Search directory by First_Name and/or Last_Name, returns people attributes &lt;br&gt; Output : Business_Long_Distance_Phone_Number,CAI,Chevron_Email,City,CTN_Phone_Number,Facility_Code,First_Name,Initials,Last_Name,Room_Number,Work_Company_Short_Name as Object</wsdl:documentation>
+      <wsdl:input name="objgetPeoplebySearchCollection" message="tns:objgetPeoplebySearchCollectionSoapIn" />
+      <wsdl:output name="objgetPeoplebySearchCollection" message="tns:objgetPeoplebySearchCollectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAlternateContactInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Input : CAI OR LoginID OR Person_Unique_Identifier&lt;br&gt; Process : Returns alternate contact information for a person &lt;br&gt; Output : Alternate_Building_Name,Alternate_City,Alternate_Country_Name,Alternate_CTN_Phone_Number,Alternate_Facility_Code,Alternate_Fax_Number,Alternate_Long_Distance_Phone_Number,Alternate_Mail_Address_Line1,Alternate_Mail_Address_Line2,Alternate_Mail_Building_Name,Alternate_Mail_City,Alternate_Mail_Country_Name,Alternate_Mail_Postal_Code,Alternate_Mail_State_Province_Code,Alternate_Mail_State_Province_Name,Alternate_Mail_Suite_Number,Alternate_Postal_Code,Alternate_Room_Number,Alternate_State_Province_Code,Alternate_State_Province_Name,Alternate_Street1,Alternate_Street2,Alternate_Suite_Number,Alternate_Work_Country_Code,CAI,Chevron_Email,First_Name,Last_Name as Object</wsdl:documentation>
+      <wsdl:input name="objAlternateContactInfo" message="tns:objAlternateContactInfoSoapIn" />
+      <wsdl:output name="objAlternateContactInfo" message="tns:objAlternateContactInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GPDASoap" type="tns:GPDASoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getDirectReports">
+      <soap:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objDirectReports" style="document" />
+      <wsdl:input name="objDirectReports">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objDirectReports">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAlternateRecipient">
+      <soap:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objAlternateRecipient" style="document" />
+      <wsdl:input name="objAlternateRecipient">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objAlternateRecipient">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSystemInfo">
+      <soap:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objSystemInfo" style="document" />
+      <wsdl:input name="objSystemInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objSystemInfo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrganizationInfo">
+      <soap:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objOrganizationalInfo" style="document" />
+      <wsdl:input name="objOrganizationalInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objOrganizationalInfo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getADGroupMemberList">
+      <soap:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objADGroupMemberList" style="document" />
+      <wsdl:input name="objADGroupMemberList">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objADGroupMemberList">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillingAndSourcingInfo">
+      <soap:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objBillingAndSourcingInfo" style="document" />
+      <wsdl:input name="objBillingAndSourcingInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objBillingAndSourcingInfo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContactInfo">
+      <soap:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objContactInfo" style="document" />
+      <wsdl:input name="objContactInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objContactInfo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserMemberOfGroup">
+      <soap:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objIsUserMemberOfGroup" style="document" />
+      <wsdl:input name="objIsUserMemberOfGroup">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objIsUserMemberOfGroup">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCAIByLocalPersonHomeIDandHRSource">
+      <soap:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objCAIByLocalPersonIDandHRSource" style="document" />
+      <wsdl:input name="objCAIByLocalPersonIDandHRSource">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objCAIByLocalPersonIDandHRSource">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPeoplebySearchCollection">
+      <soap:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objgetPeoplebySearchCollection" style="document" />
+      <wsdl:input name="objgetPeoplebySearchCollection">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objgetPeoplebySearchCollection">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAlternateContactInfo">
+      <soap:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objAlternateContactInfo" style="document" />
+      <wsdl:input name="objAlternateContactInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objAlternateContactInfo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GPDASoap12" type="tns:GPDASoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getDirectReports">
+      <soap12:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objDirectReports" style="document" />
+      <wsdl:input name="objDirectReports">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objDirectReports">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAlternateRecipient">
+      <soap12:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objAlternateRecipient" style="document" />
+      <wsdl:input name="objAlternateRecipient">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objAlternateRecipient">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSystemInfo">
+      <soap12:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objSystemInfo" style="document" />
+      <wsdl:input name="objSystemInfo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objSystemInfo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrganizationInfo">
+      <soap12:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objOrganizationalInfo" style="document" />
+      <wsdl:input name="objOrganizationalInfo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objOrganizationalInfo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getADGroupMemberList">
+      <soap12:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objADGroupMemberList" style="document" />
+      <wsdl:input name="objADGroupMemberList">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objADGroupMemberList">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillingAndSourcingInfo">
+      <soap12:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objBillingAndSourcingInfo" style="document" />
+      <wsdl:input name="objBillingAndSourcingInfo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objBillingAndSourcingInfo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContactInfo">
+      <soap12:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objContactInfo" style="document" />
+      <wsdl:input name="objContactInfo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objContactInfo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserMemberOfGroup">
+      <soap12:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objIsUserMemberOfGroup" style="document" />
+      <wsdl:input name="objIsUserMemberOfGroup">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objIsUserMemberOfGroup">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCAIByLocalPersonHomeIDandHRSource">
+      <soap12:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objCAIByLocalPersonIDandHRSource" style="document" />
+      <wsdl:input name="objCAIByLocalPersonIDandHRSource">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objCAIByLocalPersonIDandHRSource">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPeoplebySearchCollection">
+      <soap12:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objgetPeoplebySearchCollection" style="document" />
+      <wsdl:input name="objgetPeoplebySearchCollection">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objgetPeoplebySearchCollection">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAlternateContactInfo">
+      <soap12:operation soapAction="http://chevron.com/CVX_EDA_GPDA_WS/objAlternateContactInfo" style="document" />
+      <wsdl:input name="objAlternateContactInfo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="objAlternateContactInfo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GPDA">
+    <wsdl:port name="GPDASoap" binding="tns:GPDASoap">
+      <soap:address location="http://ws-hr-gpda.chevron.com/gpda.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GPDASoap12" binding="tns:GPDASoap12">
+      <soap12:address location="http://ws-hr-gpda.chevron.com/gpda.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,123 @@
+﻿@model Chevron.HRPD.BusinessEntities.Employee_PD_Info
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@Styles.Render("~/css")
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+
+<style type="text/css">
+    .common {
+        margin-left: 20px;
+        font-size: small;
+        width: 100px;
+    }
+</style>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <fieldset style="width:1000px">
+
+
+        <legend>PD Letter</legend>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+        <div class="row">
+
+
+            <h6 class="common">
+                Department
+            </h6>
+            <div class="col-sm-4" style=" margin-top :-10px">
+                @Html.TextBoxFor(model => model.Department, new { @class = "form-control" })
+
+            </div>
+
+
+            <h6 class="common">
+                Supervisor Name
+            </h6>
+
+
+            <div class="col-sm-4" style=" margin-top :-10px">
+                @Html.TextBoxFor(model => model.Supervisor_Name, new { @class = "form-control" })
+            </div>
+
+
+
+
+
+
+        </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+
+        <div class="row">
+
+            <h6 class="common">
+                Performance Rating Clustering
+            </h6>
+
+
+            <div class="col-sm-4" style=" margin-top :-10px">
+                @Html.TextBoxFor(model => model.Corp_Rating, new { @class = "form-control" })
+            </div>
+
+
+            <h6 class="common">
+                Old PSG
+            </h6>
+            <div class="col-sm-4" style=" margin-top :-10px">
+                @Html.TextBoxFor(model => model.Old_PSG, new { @class = "form-control" })
+
+            </div>
+        </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+        <div class="row">
+
+
+            <h6 class="common" style=" margin-top:5px ;height: 50px">
+                New PSG
+            </h6>
+            <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+                @Html.TextBoxFor(model => model.New_PSG, new { @class = "form-control" })
+
+            </div>
+        </div>
+
+
+    </fieldset>
+    @*<a href="~/ReportViewer2.aspx">View Report</a>*@
+
+
+    <fieldset style="width:1000px">
+
+        <div class="row" style="width:700px">
+
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <button type="submit" name="command" value="Create" class="btn btn-info">Report</button>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+            @*<button type="button" value="mail" class="btn btn-info" onclick="location.href ='@Url.Action("Create", "PDReport")'" />*@
+
+            <button type="button" class="btn btn-info" style="width:180px" onclick=" location.href='@Url.Action("SendMail", "PDReport")' ">SendMailToSupervisor</button>
+
+            @*<button type="submit" id="button1" class="btn btn-info"  name="button1" formaction='@Url.Action("Create", "PDReport")'>Save</button>*@
+        </div>
+    </fieldset>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

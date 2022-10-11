@@ -1,0 +1,217 @@
+﻿
+@{
+    //ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#dialog-modal-Report").dialog(
+      {
+          autoOpen: false,
+          height: 850,
+          modal: false,
+          width: 1220,
+          show:
+              {
+                  effect: "puff",
+                  duration: 1000
+              },
+          hide:
+              {
+                  effect: "explode",
+                  duration: 1000
+              },
+          open: function () {
+              $('.ui-widget-overlay').bind('click', function () {
+                  $('#dialog-modal-Report').dialog('close');
+              })
+          }
+      });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#btnQuickInactive").click(function () {
+            $("#dialog-modal-QuickInactive").dialog("open");
+        });
+
+        function OpenQuickInactivePartialPage() {
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("RenderQuickInactiveContacts", "PDReport")',
+                dataType: 'html',
+                success: function (data) {
+                    $('#dialog-modal-QuickInactive').html(data);
+                }
+            });
+        }
+
+        $("#dialog-modal-QuickInactive").dialog(
+                {
+                    autoOpen: false,
+                    height: 500,
+                    modal: true,
+                    width: 800,
+                    show:
+                        {
+                            effect: "puff",
+                            duration: 1000
+                        },
+                    hide:
+                        {
+                            effect: "explode",
+                            duration: 1000
+                        },
+                    open: function () {
+                        OpenQuickInactivePartialPage();
+                        $('.ui-widget-overlay').bind('click', function () {
+                            $('#dialog-modal-QuickInactive').dialog('close');
+                        })
+                    }
+                });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#btnViewReport").click(function () {
+            // Split the SMSSentTo String and Parse the only Mobile Number
+
+            var location = "";
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ReportViewer", "PDReport")',
+                data: {
+                    //iLocationCode: location, iDateFrom: fromDate, iDateTo: toDate, iSendBy: SendBy
+                    iLocationCode: location
+                },
+                success: function (result) {
+                    $('#dialog-modal-Report').innerHTML = result;
+                    $('#dialog-modal-Report').dialog('open');
+                }
+            });
+        });
+
+    });
+
+    $(document).ready(function () {
+        $("#btnViewPdfReport").click(function () {
+            
+            debugger
+
+            var department = "";
+            var supervisor = "";
+            var corpRating = "";
+            var oldPSG = "";
+            var newPsg = "";
+            var EmployeeCAI = "";
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ShowPDFReport", "PDReport")',
+                data: {
+                    //iLocationCode: location, iDateFrom: fromDate, iDateTo: toDate, iSendBy: SendBy
+                    idepartment: department, isupervisor: supervisor, icorpRating: corpRating, ioldPSG: oldPSG, inewPsg: newPsg, iEmployeeCAI: EmployeeCAI
+                },
+                success: function (result) {
+                    $('#dialog-modal-Report').innerHTML = result;
+                    $('#dialog-modal-Report').dialog('open');
+                }
+            });
+        });
+
+    });
+
+    
+</script>
+
+<fieldset class="form-group">
+    <legend style="font-weight:bold">PD Report</legend>
+</fieldset>
+
+<div class="container" style="width: 1050px;">
+    <form class="form-horizontal" role="form">
+
+        <div class="form-group">
+            <label class="col-sm-1" for="inputFrom">Department</label>
+            <div class="col-sm-3">
+                <input id="txtDepartment" style="width: 200px;" />                
+            </div>
+            <label class="col-sm-1" for="inputForToDate">Supervisor CAI</label>
+            <div class="col-sm-3">
+                <input id="txtSupervisor" style="width: 200px;" />
+            </div>
+            @*<div class="col-sm-1">                
+                <button type="button" class="btn btn-warning" style="border-radius: 3px;" id="refreshBtnId"><i class="glyphicon glyphicon-refresh" style="color: black; margin-right: 8px;"></i>Reset</button>
+            </div>*@
+
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-1" for="inputLocation">Performance Rating Clustering</label>
+            <div class="col-sm-3">
+                <input id="txtCorpRating" style="width: 200px;" />
+            </div>
+            <label class="col-sm-1" for="inputForSMSGroup">Old PSG</label>
+            <div class="col-sm-3">
+                <input id="txtOldPSG" style="width: 200px;" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1" for="inputActive/Inactive">New PSG</label>
+            <div class="col-sm-3">
+                <input id="txtNewPsg" style="width: 200px;" />
+
+            </div>
+
+            <label class="col-sm-1" for="inputForEmpType">Employee CAI</label>
+            <div class="col-sm-3">
+                <input id="txtEmployeeCai" style="width: 200px;" />
+            </div>
+
+        </div>
+
+        @*<div class="form-group">
+            <label class="col-sm-1" for="inputActive/Inactive">Send By</label>
+            <div class="col-sm-3">
+                <input id="datetimepickerTo" style="width: 200px;" />
+
+            </div>
+
+            <label class="col-sm-1" for="inputForEmpType">Category</label>
+            <div class="col-sm-3">
+                <input id="datetimepickerTo" style="width: 200px;" />
+            </div>
+
+        </div>*@
+
+        @*<div class="form-group">
+            <label class="col-sm-1" for="inputChangeBy">Send To</label>
+            <div class="col-sm-4">
+                <input type="search" id="txtCAINameMob" class=" form-control seachTxtBoxSMSSsend" placeholder="Enter CAI/Name/Mobile Number for Searching..." style="left: -2px; width: 550px !important; bottom: 3px; position: relative;" />
+            </div>
+        </div>*@
+
+
+        <div class="form-group">
+            <label class="col-sm-1" for="inputForEmpType"></label>
+            <div class="col-sm-4">
+                @*<input type="button" class="btn btn-primary" style="border-radius: 3px" ; value=" View report" id="btnViewReport" />*@
+                @*<button type="button" class="btn btn-primary" style="border-radius: 3px; width: 120px; display:none;" id="btnViewReport"><i class=" glyphicon glyphicon-search" style="color: black; margin-right: 8px;"></i>View report</button>*@
+                <button type="button" class="btn btn-primary" style="border-radius: 3px; width: 120px;" id="btnViewPdfReport"><i class=" glyphicon glyphicon-search" style="color: black; margin-right: 8px;"></i>View report</button>
+                @*<button type="submit" name="command" value="Create" class="btn btn-info">ViewReport</button>*@
+            </div>
+        </div>
+
+        <div id="dialog-modal-Report" title="PD Report">
+            <div style="height: 800px; width: 1200px;">
+                @Html.Partial(@"~\Views\PDReport\_ReportViewer.cshtml")
+            </div>
+        </div>
+
+
+    </form>
+    <hr>
+</div>

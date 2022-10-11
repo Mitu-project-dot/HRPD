@@ -1,0 +1,126 @@
+﻿@model  Chevron.HRPD.BusinessEntities.Employee_PD_Info
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@Styles.Render("~/css")
+
+<style type="text/css">
+    .common {
+        margin-left: 20px;
+        font-size: small;
+        width: 100px;
+    }
+</style>
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Create</title>
+
+    <script>
+
+    </script>
+
+</head>
+
+<body>
+
+    @if (TempData["Success"] != null)
+    {
+
+        <script type="text/javascript">
+
+         window.onload = function () {
+
+          alert("@TempData["Success"]");
+
+      };
+
+        </script>
+
+    }
+    
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#btnDelData').click(function () {
+
+                if (confirm('Are you sure your want to delete?')) {
+
+                    $.ajax({
+                        type: "post",
+                        url: '@Url.Action("jsDeleteAllData", "PDDataUploader")',
+                        data: {},
+                        datatype: "json",
+                        traditional: true,
+                        success: function (data) {
+                            alert(data);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+    @*<div class="container" style="width: 1050px; height: 400px;">*@
+
+        <div style="width:90%; text-align: center; font-weight:bold; margin-bottom:15px; text-decoration: underline;">
+            <h3>'Salary Action' Data Upload</h3>
+        </div>
+
+    <div style="width:100%; text-align: center; margin-top:20px; height: 400px; margin-top:20px;">
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="row" style="margin-top:10px; margin-bottom:10px;">
+                </div>
+
+                <div class="row" style="margin-top:10px; margin-bottom:10px;">
+
+                    <div class="col-sm-2" style="margin-top:-10px ;height: 50px">
+
+
+                    </div>
+
+                    <div class="col-sm-6" style=" margin-top:-10px ;height: 50px">
+                        <div style="width:80%">
+                            <input name="file" type="file" style="height:30px;" required />
+                            <button type="submit" class="btn btn-success">Import</button>
+                            <button type="button" class="btn btn-danger" id="btnDelData">Delete All Data</button>
+                        </div>
+                    </div>
+                </div>
+
+                @*<div>
+
+                <input name="file" type="file" required />
+
+                <button type="submit" class="btn btn-success">Import</button>
+                <button type="button" class="btn btn-danger" id="btnDelData">Delete All Data</button>
+
+            </div>*@
+
+</form>
+
+    </div>
+
+</body>
+
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

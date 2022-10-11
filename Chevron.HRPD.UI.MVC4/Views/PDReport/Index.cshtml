@@ -1,0 +1,234 @@
+﻿@model Chevron.HRPD.BusinessEntities.Employee_PD_Info
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@Styles.Render("~/css")
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+
+<style type="text/css">
+    .common {
+        margin-left: 20px;
+        font-size: small;
+        width: 100px;
+    }
+</style>
+
+
+
+
+
+@if (TempData["Success"] != null)
+{
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            alert("@TempData["Success"]");
+
+        };
+
+    </script>
+
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+
+        $('#PD_Year').change(function ()
+        {
+
+           
+            var year = $("#PD_Year").val();
+
+            if (year == '2018' || '2019' )
+            {
+
+                $("#btnreview").hide();
+
+                
+                $('#btnmail').hide();
+
+            
+
+            }
+            else {
+
+                $("#btnreview").show();
+                $("#btnmail").show();
+             
+
+
+            }
+        });
+
+
+
+        $('#ddlDept').change(function () {
+            $.ajax({
+                type: "post",
+                url: '@Url.Action("GetSupervisorName", "PDReport")',
+                data: { DepartmentName: $('#ddlDept').val() },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+
+                    var Supervisor = "<select id='ddlSupervisor'>";
+                    Supervisor = Supervisor + '<option value="">--Select--</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        Supervisor = Supervisor + '<option value=' + data[i].Value + '>' + data[i].Text + '</option>';
+                    }
+                    Supervisor = Supervisor + '</select>';
+                    $('#ddlSupervisor').html(Supervisor);
+                }
+            });
+        });
+
+
+
+
+    });
+</script>
+
+
+<div style="width:80%; text-align: center; font-weight:bold; margin-bottom:15px; text-decoration: underline;">
+    <h3>HR Dashboard</h3>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <div style="width:100%; text-align: center; margin-top:20px;">
+
+        <fieldset style="width:1000px;">
+
+           
+            <div class="row" style="margin-top:10px; margin-bottom:10px;">
+
+                <div class="col-sm-4" style="margin-top:-10px ;height: 50px">
+                </div>
+
+                <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+
+                    @Html.DropDownList("PD_Year", new List<SelectListItem>
+        {
+
+
+              new SelectListItem{ Text="2020", Value = "2020" },
+           new SelectListItem{ Text="2019", Value = "2019" },
+          new SelectListItem{ Text="2018", Value = "2018" },
+        
+
+
+
+        }, new
+                 {
+                     @class = "form-control",
+                    
+                     placeholder = "PD Year" ,
+                     style = "width: 400px",
+                     id = "PD_Year",
+
+
+                 })
+
+
+                </div>
+            </div>
+            
+            
+             <div class="row" style="margin-top:10px; margin-bottom:10px;">
+
+                <div class="col-sm-4" style="margin-top:-10px ;height: 50px">
+                </div>
+
+                <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+
+                    @Html.DropDownListFor(model => model.Department, Model.DeptList, "Select Department", new { @class = "form-control", @id = "ddlDept", placeholder = "Department" })
+
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:10px; margin-bottom:10px;">
+                <div class="col-sm-4" style="margin-top:-10px ;height: 50px">
+                </div>
+
+                <div id="Supervisor" class="col-sm-4 " style=" margin-top:-10px ;height: 50px">
+                    @Html.DropDownListFor(model => model.Supervisor_CAI, new List<SelectListItem>(), "Select Supervisor", new { @class = "form-control", @id = "ddlSupervisor", placeholder = "Supervisor" })
+
+                </div>
+            </div>
+
+
+
+            @*<div class="row" style="margin-top:10px; margin-bottom:10px;">
+
+                <div class="col-sm-4" style="margin-top:-10px ;height: 50px">
+                </div>
+
+                <div class="col-sm-4" style=" margin-top :-10px">
+                    @Html.TextBoxFor(model => model.Corp_Rating, new { @class = "form-control", placeholder = "Performance Rating Clustering" })
+                </div>
+
+
+
+            </div>*@
+
+
+
+            @*<div class="row" style="margin-top:10px; margin-bottom:10px;">
+
+                <div class="col-sm-4" style="margin-top:-10px ;height: 50px">
+                </div>
+                <div class="col-sm-4" style=" margin-top :-10px">
+                    @Html.TextBoxFor(model => model.Old_PSG, new { @class = "form-control", placeholder = "Old PSG" })
+                </div>
+            </div>
+
+
+
+            <div class="row" style="margin-top:10px; margin-bottom:10px;">
+                <div class="col-sm-4" style="margin-top:-10px ;height: 50px">
+                </div>
+
+
+                <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+                    @Html.TextBoxFor(model => model.New_PSG, new { @class = "form-control", placeholder = "New PSG" })
+
+                </div>
+            </div>*@
+
+
+        </fieldset>
+        @*<a href="~/ReportViewer2.aspx">View Report</a>*@
+
+
+        @*<fieldset style="width:1000px">*@
+
+        <div class="row" style="margin-top:20px;">
+
+            <div class="col-sm-3" style="margin-top:-10px ;height: 50px">
+            </div>
+
+            <div class="col-sm-4" style="margin-top:-10px ;height: 50px">
+                <button type="submit"  name="command" value="Index" style="width:100px" class="btn btn-primary">Report</button>
+                <button type="button" id="btnreview" class="btn btn-warning" style="width:100px" onclick="location.href='@Url.Action("HRReviewUpdate", "PDReport")'">HR Verify</button>
+
+                <button type="button" id="btnmail" class="btn btn-success" style="width:170px" onclick="location.href='@Url.Action("SendMail", "PDReport")'">Send Mail To Supervisor</button>
+            </div>
+        </div>
+
+        @*</fieldset>*@
+    </div>
+}

@@ -1,0 +1,12 @@
+<!--
+    You can find existing browser definitions at
+    <windir>\Microsoft.NET\Framework\<ver>\CONFIG\Browsers
+-->
+<browsers>
+  <browser refID="Default">
+    <controlAdapters>
+      <adapter controlType="Chevron.Ipls.Web_V3_5.UI.Controls.IBSMenu"
+               adapterType="Chevron.Ipls.Web_V3_5.Adapters.CSSFriendly.MenuAdapter" />
+    </controlAdapters>
+  </browser>
+</browsers>

@@ -1,0 +1,383 @@
+﻿@model Chevron.HRPD.BusinessEntities.OverTimeApply
+
+@{
+    ViewBag.Title = "Details";
+}
+@Styles.Render("~/css")
+
+<style type="text/css">
+    .common {
+        margin-left: 20px;
+        font-size: small;
+        width: 100px;
+    }
+</style>
+
+
+
+<fieldset style="width:1000px">
+
+
+    <legend>Employee Information</legend>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+    <div class="row">
+
+
+        <h6 class="common">
+            Employee Name
+        </h6>
+
+
+        <div class="col-sm-4" style=" margin-top :-10px">
+            @Html.TextBoxFor(model => model.EmployeeName, new { @class = "form-control" })
+        </div>
+
+        <h6 class="common">
+            AB#
+        </h6>
+        <div class="col-sm-4" style=" margin-top :-10px">
+            @Html.TextBoxFor(model => model.AB, new { @class = "form-control" })
+
+        </div>
+
+    </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+
+    <div class="row">
+
+
+        <h6 class="common" style=" margin-top:5px ;height: 50px">
+            Job Title
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+            @Html.TextBoxFor(model => model.Designation, new { @class = "form-control" })
+
+        </div>
+
+
+        <h6 class="common">
+            Employee Type
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+            @Html.TextBoxFor(model => model.EmployeeType, new { @class = "form-control" })
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+
+        <h6 class="common" style=" margin-top:5px ;height: 50px">
+            Department
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+            @Html.TextBoxFor(model => model.Department, new { @class = "form-control" })
+
+        </div>
+
+        <h6 class="common" style=" margin-top:5px ;height: 50px">
+            CAI
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+            @Html.TextBoxFor(model => model.CAI, new { @class = "form-control" })
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+    @*<legend>OverTimeApply</legend>
+
+        <div class="row">
+            <div class="col-sm-4">
+
+
+                <h6 style="font-size:small"> Employee Name</h6>
+
+                @Html.TextBoxFor(model => model.EmployeeName, new { @class = "form-control" })
+
+
+            </div>
+            <div class="col-sm-4">
+                <h6 style="font-size:small">
+                    AB#
+                </h6>
+                @Html.TextBoxFor(model => model.AB, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-4">
+
+                <h6 style="font-size:small">
+                    Job Title
+                </h6>
+                @Html.TextBoxFor(model => model.Designation, new { @class = "form-control" })
+
+            </div>
+            <div class="col-sm-4">
+                <h6 style="font-size:small">
+                    Employee Type
+                </h6>
+                @Html.TextBoxFor(model => model.EmployeeType, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+
+                <h6 style="font-size:small">
+                    Department
+                </h6>
+                @Html.TextBoxFor(model => model.Department, new { @class = "form-control" })
+
+            </div>
+            <div class="col-sm-4">
+
+                <h6 style="font-size:small">
+                    CAI
+                </h6>
+                @Html.TextBoxFor(model => model.CAI, new { @class = "form-control" })
+
+            </div>
+
+        </div>*@
+
+</fieldset>
+<fieldset style="width:1000px">
+
+
+    <legend>OT Request</legend>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <div class="row">
+        <h6 class="common">
+            From Date
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+
+            @Html.TextBoxFor(model => model.FromDate1, new { @class = "form-control" })
+
+        </div>
+
+        <h6 class="common" style="font-size:small; width:50px">
+            Hour
+        </h6>
+        <div style=" margin-top:-10px ;height: 50px">
+            @Html.DropDownListFor(m => m.FromHour, Enumerable.Range(01, 23).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control", id = "FromHour" })
+
+
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <h6 style="font-size:small ; width:50px">
+            Min
+        </h6>
+        <div style=" margin-top:-10px ;height: 50px">
+
+            @Html.DropDownListFor(m => m.FromMin, Enumerable.Range(00, 59).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control", id = "FromMin" })
+
+
+        </div>
+
+
+
+
+
+
+    </div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+    <div class="row">
+
+
+        <h6 class="common">
+            To Date
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+
+            @Html.TextBoxFor(model => model.ToDate1, new { @class = "form-control" })
+
+        </div>
+
+        <h6 class="common" style="font-size:small; width:50px">
+            Hour
+        </h6>
+
+        <div style=" margin-top:-10px ;height: 50px">
+            @Html.DropDownListFor(m => m.ToHour, Enumerable.Range(1, 24).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control", id = "ToHour" })
+
+        </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <h6 style="font-size:small ; width:50px; margin-top:5px ;height: 50px">
+            Min
+        </h6>
+        <div style=" margin-top:-10px ;height: 50px">
+
+            @Html.DropDownListFor(m => m.ToMin, Enumerable.Range(0, 60).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control", id = "ToMin" })
+
+
+        </div>
+
+    </div>
+    <div class="row">
+
+        <h6 class="common">
+            Apply Date
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+
+            @Html.TextBoxFor(model => model.CreateDate1, new { @class = "form-control" })
+
+        </div>
+
+        <h6 class="common" style="width: 100px">
+            Total OT
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px; width:100px">
+
+            @Html.TextBoxFor(model => model.TotalOverTime, new { @class = "form-control" })
+
+        </div>
+
+    </div>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div class="row">
+
+        <h6 class="common">
+            Rate
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+
+            @Html.TextBoxFor(model => model.Rate, new { @class = "form-control" })
+
+        </div>
+
+        <h6 class="common" style="width: 100px">
+            Total Cost
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px; width:100px">
+
+            @Html.TextBoxFor(model => model.Cost, new { @class = "form-control" })
+
+        </div>
+
+
+        
+
+
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="row">
+
+        <h6 class="common">
+            Created By
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+
+            @Html.TextBoxFor(model => model.CreatedBy, new { @class = "form-control" })
+
+        </div>
+
+        
+
+    </div>
+
+
+
+
+
+    
+
+
+
+</fieldset>
+
+<fieldset style="width:1000px">
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+    <legend>Supervisor Approval</legend>
+
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="row">
+        <h6 class="common">
+            Supervisor Status
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+
+            @Html.TextBoxFor(model => model.SupervisorStatus, new { @class = "form-control" })
+
+        </div>
+
+        <h6 class="common">
+            Supervisor Remarks
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+
+            @Html.TextBoxFor(model => model.SupervisorRemarks, new { @class = "form-control" })
+
+        </div>
+
+
+
+    </div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+
+
+</fieldset>
+
+<fieldset style="width:1000px">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <legend>Manager Approval</legend>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+    <div class="row">
+
+        <h6 class="common">
+            Manager Status
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+
+            @Html.TextBoxFor(model => model.ManagerStatus, new { @class = "form-control" })
+
+        </div>
+
+        <h6 class="common">
+            Manager remarks
+        </h6>
+        <div class="col-sm-4" style=" margin-top:-10px ;height: 50px">
+
+            @Html.TextBoxFor(model => model.ManagerRemarks, new { @class = "form-control" })
+
+        </div>
+
+
+       
+        
+        
+        
+     
+    </div>
+
+</fieldset>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

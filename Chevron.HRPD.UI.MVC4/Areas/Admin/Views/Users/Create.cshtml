@@ -1,0 +1,157 @@
+﻿@model Chevron.ITRC_iDACS.UI.Areas.Admin.ViewModels.UserViewModel
+
+@{
+    ViewBag.Title = "Create";
+    ViewBag.Layout = "layout-16";
+}
+
+@section FirstColumn {
+<h2>Add User</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>User</legend>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.user.CAI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.user.CAI)
+            @Html.ValidationMessageFor(model => model.user.CAI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.user.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.user.FirstName)
+            @Html.ValidationMessageFor(model => model.user.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.user.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.user.LastName)
+            @Html.ValidationMessageFor(model => model.user.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.user.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.user.Email)
+            @Html.ValidationMessageFor(model => model.user.Email)
+        </div>
+        
+        @Html.Partial("RoleList", Model)
+        
+        <br />
+
+
+
+        <p>
+            <input type="submit" value="Create" /><a class="showOverlay" style="margin-left: 20px;">Search</a>
+        </p>
+
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+}
+
+@*@section OverlayContent
+{
+    <form id="searchForm">
+        <table class="noborder">
+            <tbody>
+                <tr>
+                    <th>CAI:</th>
+                    <td><input type="text" name="Cai" id="Cai" tabindex="1" /></td>
+                </tr>
+                <tr>
+                    <th>Last Name:</th>
+                    <td><input type="text" name="LastName" id="nLastName" tabindex="1" /></td>
+                </tr>
+                <tr>
+                    <th>First Name:</th>
+                    <td><input type="text" name="FirstName" id="nFirstName" tabindex="1" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td><td><div class="buttons"><a id="btnSearch" class="newbutton search" tabindex="1">Search</a></div></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    
+    <div id="searchResults" style="display: none; overflow: auto; max-height: 300px;">
+        <p>Select by clicking on the person's name below.</p>
+        <table id="List"></table>
+        <div class="buttons"><a class="newbuttons neutral back" onclick="javascript:showSearch();">Search Again</a></div>
+    </div>
+
+    <div><span id="Error" style="color: Red; display: none;"></span></div>
+    <div><span id="Instruction" style="display: none;"></span></div>
+    <br />
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#overlay').show();
+            $('.showOverlay').click(function () {
+                $('#overlay').show();
+            });
+        });
+
+        $('#btnSearch').click(function () {
+            submitSearch();
+        });
+
+        $('#searchForm').keydown(function (event) {
+            if (event.keyCode == 13) {
+                submitSearch();
+            }
+        });
+
+        function showSearch() {
+            $('#searchResults').hide();
+            $('#searchForm').fadeIn('slow');
+        }
+
+        function submitSearch() {
+            $.post("/Admin/User/PersonSearch",
+                { Cai: $('#Cai').val(), LastName: $('#nLastName').val(), FirstName: $('#nFirstName').val() },
+                function (data) {
+                    $('#searchForm').hide();
+                    $('#searchResults').fadeIn('slow');
+
+                    $('#List').html("");
+                    if (data.length == 0)
+                        $('#List').append('<tr><td>no matches found...</td></tr>');
+                    else {
+                        $(data).each(function () {
+                            $('#List').append('<tr><td><a href="#" onclick="javascript:Populate(\'' + this.Cai + '\',\'' + this.FirstName + '\',\'' + this.LastName + '\',\'' + this.Email + '\');">' + this.FirstName + ' ' + this.LastName + '</a>, ' + this.Company + ' (' + this.CTN + ')</td></tr>');
+                        });
+                    }
+                }, 'json'
+            );
+            return false;
+        }
+
+        function Populate(cai, firstname, lastname, email) {
+            $('#overlay').hide();
+            $('#user_CAI').val(cai);
+            $('#user_FirstName').val(firstname);
+            $('#user_LastName').val(lastname);
+            $('#user_Email').val(email);
+        }
+    </script>
+}*@

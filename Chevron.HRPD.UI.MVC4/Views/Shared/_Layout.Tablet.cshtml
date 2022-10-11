@@ -1,0 +1,90 @@
+﻿@using Chevron.HRPD.UI.MVC4.Helpers;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ApplicationSettings.ApplicationName : @ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    @Styles.Render("~/Content/Mobile/css/jquery.cvx-brand-theme.min.css", "~/Content/Mobile/css/jquery.mobile.structure-1.3.0.min.css", "~/Content/Site.Tablet.css")
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.9.1.min.js"></script>    
+
+    <script type="text/javascript">
+
+        $(document).bind("mobileinit", function () {
+
+            $.mobile.loadingMessage = "Loading...";
+            $(document).bind("mobileinit", function () {
+                $.mobile.pageLoadErrorMessage = 'Error loading page. Please try again.';
+            });
+            $.mobile.defaultPageTransition = "fade";
+            $.mobile.defaultDialogTransition = "pop";
+            $.mobile.ajaxEnabled = false;
+        });
+
+    </script>
+    
+<script type="text/javascript" src="~/Scripts/jquery.mobile-1.3.0.min.js"></script>
+
+@RenderSection("HeadContent", required: false)
+
+</head>
+<body>
+
+    <div  class="blackbar">&nbsp;</div>
+    <div id="page" >
+
+        <header>
+            <ul>
+		        <li>&nbsp;</li>		        
+	        </ul>
+            <img src="@Url.Content("~/content/IBS/images/hallmark.png")" class="hallmark" width="54" height="61" alt="Chevron Hallmark" />
+            <img src="@Url.Content("~/content/Mobile/images/sitename.gif")" class="sitename" width="400" height="55" alt="Site Name - Site Description" />         
+            <div class="topnav">                
+                @Html.Raw(Html.Menu("topnav", "tabletSiteMapProvider"))
+            </div>
+        </header>
+        <div id="content">
+            <div id="column1" class="column">
+                <div class="layout-394">
+                    @Html.Raw(Html.Menu("sidenav", "tabletSiteMapProvider"))
+                </div>
+            </div>
+            <div id="column2" class="column main" data-role="content">
+                
+                @RenderBody()  
+                    
+            </div>
+            @*-
+            This is not the best hack for Sections - should be decided at the page level
+            --*@
+            @{
+                RenderSection("momentumBand", required: false).WriteTo(TextWriter.Null);
+                RenderSection("ColumnRight", required: false).WriteTo(TextWriter.Null);
+            }
+        </div>
+        <footer class="footer">
+            <ul class="horizontal global">
+	            <li>Last Update: @ApplicationSettings.LastUpdated</li>
+	            <li id="copyright">&#169; @ApplicationSettings.Copyright</li>
+	            <li id="confidential">Company Confidential</li>
+	            <li>Opco: <a href="@ApplicationSettings.OperatingCompanyLink">@ApplicationSettings.OperatingCompanyName</a></li>
+            </ul>
+            <!-- Contacts -->	
+            <ul id="contacts" class="horizontal global">
+                <li>Content Contact: <a href="@ApplicationSettings.ContentContactLink">@ApplicationSettings.ContentContactName</a></li>
+                <li>Technical Contact: <a href="@ApplicationSettings.TechnicalContactLink">@ApplicationSettings.TechnicalContactName</a></li>
+                @if (ApplicationSettings.ShowVersionInformation)
+                {            
+                    <li>Version: @ApplicationSettings.ApplicationVersion</li>
+                    <li>Environment: @ApplicationSettings.Environment</li>
+                }
+            </ul>
+        </footer>
+       
+    <br style="clear: both;" />
+
+   </div>
+    
+</body>
+</html>

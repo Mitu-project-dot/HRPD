@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Chevron.HRPD.BusinessEntities.OverTimeApply>
+
+@{
+    ViewBag.Title = "Index";
+}
+@Styles.Render("~/css")
+
+
+<fieldset style="width:1000px">
+   
+    <legend>Toalt OverTime Applied</legend>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+     <table>
+        <tr>
+            <th>
+                Employee Name
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AB)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+
+            <th>
+                Supervisor Status
+
+            </th>
+
+
+            <th>
+                Manager Status
+
+            </th>
+
+
+
+           
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AB)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Designation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromDate1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToDate1)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupervisorStatus)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.ManagerStatus)
+                </td>
+               
+
+
+                <td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) 
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</fieldset>

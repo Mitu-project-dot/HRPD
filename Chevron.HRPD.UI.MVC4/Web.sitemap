@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="Root"  description="The Root for the site map" roles="*">
+    <!--<siteMapNode url="~/" title="Home"  description="Home page"/>-->
+
+    <siteMapNode url="~/PDDataUploader/Create" title="PD Template"  description="PD Information Upload"/>
+    <siteMapNode url="~/PDReport" title="PD Reports"  description="PD Reports"/>
+    <siteMapNode url="~/Employee_PD_Info" title="Supervisor Notification"  description="Supervisor Notification"/>
+    <siteMapNode url="~/SupervisorApproval" title="Supervisor Approval"  description="SupervisorApproval page"/>    
+    <siteMapNode url="~/AdminPanel" title="Admin"  description="Admin page"/>
+
+  </siteMapNode>
+</siteMap>

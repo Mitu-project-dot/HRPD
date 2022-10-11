@@ -1,0 +1,114 @@
+﻿
+
+body, body * { margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; _text-align:left }
+body { font-size:0.75em; width:100%; height:100%; background:#ffffff;  _text-align:center; overflow-x:hidden; -ms-overflow-x:hidden;}
+#hallmark, img.hallmark { padding:10px 10px 10px 12px !important; width:41px; height:45px; float:left; }
+#sitename, img.sitename { padding:30px 10px 14px 5px;  width:110px; height:28px; float:left;  }
+h2 { font-family:Arial; font-weight:400; color:#009dd9; font-size:1.5em; padding-right:5px; } /* page title */
+footer { position:fixed; bottom: 0px; height:12px; width:100%; font-family:Arial; font-weight:400; color:#666666; background-color:#efefef; /*opacity:0.60;*/ font-size:.8em; border-top:1px solid #ddd; margin-left:-10px; margin-bottom:0; padding:15px 15px 20px 15px; *padding-bottom:15px; _padding-bottom:15px; }
+header {margin-bottom:100px;}
+
+    .txtType1{       
+        color: #333;
+        box-shadow:none;
+        border:none;
+        background:none;
+        font-weight:500; 
+        font-size:.7em; 
+    }
+
+    .txtType2{       
+        color: #333;
+        box-shadow:none;
+        border:none;
+        background:none;
+        font-weight:500; 
+        font-size:1.2em; 
+    }
+
+    .txtType3{
+        color: #ffffff;
+        box-shadow:none;
+        border:none;
+        background:none;
+        font-weight:400; 
+        font-size:1.2em; 
+        position:relative;            
+        top:6px;
+        padding-left:10px;
+    }
+
+.btnDkBlue {
+        height:34px;
+        color:#ffffff;
+        font-size: 1.2em;
+        font-weight: 600;
+        float:left;
+        text-align:center;
+        display:inline-block;		
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4082c6', endColorstr='#0050aa'); /* IE6 & IE7 */ 
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#4082c6', endColorstr='#0050aa')"; /* IE8+ */
+        background: -moz-linear-gradient(top, #4082c6, #0050aa); /* FF 3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4082c6), color-stop(100%, #0050aa)); /* Safari 4+, Chrome 2+ */   
+        background: -webkit-linear-gradient(top, from(#4082c6), to(#0050aa)); /* Safari 5.1+, Chrome 10+ */ 
+        background: -o-linear-gradient(#4082c6, #0050aa); /* Opera 11.10 */
+        background: linear-gradient(#4082c6, #0050aa); /* the standard */
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        padding: 0 20px 0 20px; 
+}
+
+    .txtWhiteContainer{
+        font-weight:300; 
+        height:24px;
+        font-size:1em;
+        position:relative; 
+        background-color:#ffffff; 
+        color:#4082c6;
+        opacity:0.80; 
+        border-top:1px solid #ddd; 
+        border-bottom:1px solid #ddd; 
+        margin-bottom:0; 
+        padding: 12px 0 12px 15px; 
+        *padding-bottom:15px;
+         _padding-bottom:15px; 
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px; 
+        background:transparent url(../Content/IBS/images/caret.gif) no-repeat center right;
+    }
+        
+    .txtScreenTitle {    
+        position:relative;   
+        height:30px;       
+        font-weight:300; 
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3eb2d8', endColorstr='#009dd9'); /* IE6 & IE7 */ 
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#3eb2d8', endColorstr='#009dd9')"; /* IE8+ */
+        background: -moz-linear-gradient(top, #3eb2d8, #009dd9); /* FF 3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3eb2d8), color-stop(100%, #009dd9)); /* Safari 4+, Chrome 2+ */   
+        background: -webkit-linear-gradient(top, from(#3eb2d8), to(#009dd9)); /* Safari 5.1+, Chrome 10+ */ 
+        background: -o-linear-gradient(#3eb2d8, #009dd9); /* Opera 11.10 */
+        background: linear-gradient(#3eb2d8, #009dd9); /* the standard */ 
+        margin-bottom:10px; 
+        width:100%;
+    }
+
+    .btn-back {
+        float:left;
+        left:10px;
+        width:60px;
+        height:28px;
+        border:none
+     }
+
+/* Styles for jquery touch examples 
+-----------------------------------------------------------*/ 
+    #nav {    font-size: 200%;    width:17.1875em;    margin:17px auto 0 auto;  }  #nav a {    color: #777;    border: 2px solid #777;    background-color: #ccc;    padding: 0.2em 0.6em;    text-decoration: none;    float: left;    margin-right: 0.3em;  }  #nav a:hover {    color: #999;    border-color: #999;    background: #eee;   }  #nav a.selected,  #nav a.selected:hover {    color: #0a0;    border-color: #0a0;    background: #afa;   }  
+              div.boxSwipe {   margin:20px 10px 0 0;  width: 100%;    height: 10em;    background-color: #009dd0;  }  div.boxSwipe.swipe {    background-color: #0050aa;  }
+              div.boxSwipeleft {    margin:20px 10px 0 0;  width: 100%;    height: 10em;    background-color: #009dd0;  }  div.boxSwipeleft.swipeleft {    background-color: #0050aa;  }
+              div.boxSwiperight {    margin:20px 10px 0 0;  width: 100%;   height: 10em;    background-color: #009dd0;  }  div.boxSwiperight.swiperight {    background-color: #0050aa;  }
+              div.boxtap {    margin:20px 10px 0 0;  width: 100%;   height: 10em;    background-color: #009dd0;  }  div.boxtap.tap {    background-color: #0050aa;  }
+              div.boxtaphold {    margin:20px 10px 0 0;  width: 100%;    height: 10em;    background-color: #009dd0;  }  div.boxtaphold.taphold {    background-color: #0050aa;  }
+
+

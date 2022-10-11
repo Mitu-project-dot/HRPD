@@ -1,0 +1,7 @@
+﻿
+07/08/2013 LLLHD
+- Convert to .NET 4.5
+- Convert to Enterprise Library 5.0
+- Convert to Unity 3.0
+- Due to IBS not fully supporting .NET 4.5 and HTML5.0/CSS3, a short-term fix is requried to fix the layput. The change has been made into custom.css.
+- UI has been tested

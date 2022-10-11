@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://ws-hr-gpda.chevron.com/gpda.asmx?wsdl" docRef="http://ws-hr-gpda.chevron.com/gpda.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://ws-hr-gpda.chevron.com/gpda.asmx" xmlns:q1="http://chevron.com/CVX_EDA_GPDA_WS" binding="q1:GPDASoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://ws-hr-gpda.chevron.com/gpda.asmx" xmlns:q2="http://chevron.com/CVX_EDA_GPDA_WS" binding="q2:GPDASoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,65 @@
+﻿@model  Chevron.HRPD.BusinessEntities.Employee_PD_Info
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@Styles.Render("~/css")
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+
+<style type="text/css">
+    .common {
+        margin-left: 20px;
+        font-size: small;
+        width: 100px;
+    }
+</style>
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Create</title>
+
+</head>
+
+<body>
+
+    <div class="container" style="width: 1050px; height: 400px;">
+
+
+        <h2>PD Data Import</h2>
+
+
+
+        <form method="post" enctype="multipart/form-data">
+
+            <div>
+
+                <input name="file" type="file" required />
+
+                <button type="submit">Import</button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

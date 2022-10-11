@@ -1,0 +1,138 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Chevron.HRPD.UI.WebForms.MasterPages.Main" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>ITRC Master Page</title>
+    <link id="Link1" runat="server" href="~/IBS/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="/IBS/css/custom.css" rel="stylesheet" type="text/css" />
+    <script src="/js/jquery-1.5.2.min.js" type="text/javascript"></script>
+    <script src="/js/cufon-yui.js" type="text/javascript"></script>
+    <script src="/js/interstate_400.font.js" type="text/javascript"></script>
+   <script language="javascript" type="text/javascript">
+       function FindWithOneSearch() 
+       {
+           var inputValue =  $("#<%# SearchTextBox.ClientID %>").val();
+           
+           if (checkforSearchKeywords(inputValue)) 
+           {
+               window.open("http://onesearch.chevron.com/Pages/results.aspx?k=" + inputValue);
+           }
+           
+       }
+   </script>
+ 	<asp:ContentPlaceHolder ID="head" runat="server">        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<div id="page">
+    <form id="IBSForm" runat="server">  
+    <asp:ScriptManager ID="ITRCScriptManager" runat="server">
+    </asp:ScriptManager>
+  <!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm TOP LINKS, HALLMARK & SITENAME mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+	<ul id="toplinks" class="horizontal global" title="Chevron Global Links">
+		<li><a href="http://myinside.chevron.com/">Inside Home</a></li>
+		<li><a href="http://findandsearch.chevron.com/">OneSearch</a></li>
+		<li><a href="http://whitepages.chevron.com/">People Finder</a></li>
+	</ul>     
+    
+    <asp:Image ID="hallmark" runat="server" CssClass="hallmark" ImageUrl="~/IBS/images/hallmark.png" width="54" height="61" AlternateText="Chevron Hallmark" />
+	<div class="sitename" id="sitename">
+            <div id="sitenameTitle">IBS Template Reusable Components 2.0</div>
+            <div id="sitenameDesc">IBS Template Reusable Components 2.0 for .NET 4.5 07/08/2013</div>
+        </div><br />
+  
+<!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm TOP NAVIGATION mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->	
+
+    <IBS:IBSMenu runat="server" StaticDisplayLevels="1" ID="TopNav" DataSourceID="PrimaryNavSource" NavigationType="topNav" OnMenuItemDataBound="TopNav_MenuItemDataBound" >
+        <Items>
+            <asp:MenuItem text="Not used Unless sitemap is not working" NavigateUrl="~/"></asp:MenuItem>
+        </Items>
+    </IBS:IBSMenu>
+
+    <asp:sitemapdatasource ID="PrimaryNavSource" runat="server" 
+          SiteMapProvider="SiteMapLinks" 
+          ShowStartingNode="false" />
+    <div id="search">
+        <asp:TextBox runat="server" ID="SearchTextBox" CssClass="searchfield" Text="Find with OneSearch" onkeypress="javascript:if (event.keyCode == 13) { FindWithOneSearch(); return false; }" />
+        <asp:LinkButton OnClientClick="javascript:FindWithOneSearch(); return false;" PostBackUrl="" ID="LinkButton1" runat="server" CssClass="arrow-button">Go</asp:LinkButton>
+	    <a href="" class="advancedsearch">Advanced Search</a>
+	</div>
+
+    <div>
+        <asp:ContentPlaceHolder ID="welcomeMessage" runat="server">dddddd</asp:ContentPlaceHolder>
+     </div>
+     
+	<div id="content">
+	
+     <div id="band"><asp:ContentPlaceHolder ID="momentumBand" runat="server"></asp:ContentPlaceHolder></div>
+
+<!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm COLUMNS mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->		
+        <div class="column" id="column1">
+           
+            <IBS:IBSMenu runat="server" StaticDisplayLevels="3" ID="sidenav" DataSourceID="SecondaryNavSource" NavigationType="sideNav" OnMenuItemDataBound="Sidenav_MenuItemDataBound"></IBS:IBSMenu>
+            <asp:sitemapdatasource ID="SecondaryNavSource" runat="server" 
+            SiteMapProvider="SiteMapLinks" 
+            ShowStartingNode="false" StartingNodeOffset="1"/>
+           
+            <asp:contentplaceholder id="FirstColumn" runat="server">
+            </asp:contentplaceholder>
+        </div>
+
+        <div class="column" id="column2">
+            <asp:contentplaceholder  id="SecondColumn" runat="server">
+            </asp:contentplaceholder>
+        </div>
+
+        <div class="column" id="column3">
+            <asp:contentplaceholder id="ThirdColumn" runat="server">
+            </asp:contentplaceholder>
+        </div>
+                   
+        <div class="column" id="column-right">
+            <asp:contentplaceholder id="ColumnRight" runat="server">
+            </asp:contentplaceholder>
+        </div>
+    
+    </div>
+   
+<!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm FOOTER mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+	<ul id="footer" class="horizontal global">
+		<li>Last Update: <asp:Literal ID="LitLastUpdate" runat="server">August 1, 2011</asp:Literal></li>
+		<li id="copyright">&#169; <asp:Literal ID="LitCopyright" runat="server">2011</asp:Literal> Chevron Corporation</li>
+		<li id="confidential"><asp:Literal ID="LitConfidential" runat="server">Company Confidential</asp:Literal></li>
+		<li>Opco: <asp:HyperLink ID="HLOpco" runat="server" NavigateUrl="#">ITC</asp:HyperLink></li>
+	</ul>
+
+<!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm CONTACTS mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+	<ul id="contacts" class="horizontal global">
+		<li>Content Contact: <asp:HyperLink ID="HLContentContact" runat="server" NavigateUrl="#">ITRC Dev Team</asp:HyperLink></li>
+		<li>Technical Contact: <asp:HyperLink ID="HLTechnicalContact" runat="server" NavigateUrl="#">ITRC Dev team</asp:HyperLink></li>
+	</ul>
+	<asp:Literal ID="IBS_RequiredControl" runat="server"></asp:Literal>
+	
+	<div id="overlay">
+	    <div class="inside">
+		    <a class="close">Close</a>
+		    <div id="overlay-content">
+			    <!-- overlay dynamic content -->
+			    <div id="overlay-dync" class="frame"></div>
+			    <!-- overlay user content -->	
+			    <asp:contentplaceholder id="overlayContent" runat="server"></asp:contentplaceholder>			    
+		    </div>
+	    </div>
+	    <div class="bg"></div>
+    </div>
+    </form>
+    </div>
+ <script type="text/javascript">
+     //Cufon.replace('#sitename');
+     Cufon.replace('h1'); 
+    </script>
+<script src="/IBS/js/core.js" type="text/javascript"></script>
+<script src="/IBS/js/custom.js" type="text/javascript"></script>
+
+</body>
+</html>

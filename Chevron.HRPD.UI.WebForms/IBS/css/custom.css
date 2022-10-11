@@ -1,0 +1,25 @@
+﻿/*========== SITE NAME ===================*/
+#band { background-color:#DDE1D2 }
+#sitename {margin-top:-5px;}
+#sitenameTitle {font-size: 22pt; color: #009dd9; letter-spacing:-.020em;}
+#sitenameDesc {margin-top:1px; margin-left: 0pt; font-size: 10pt; color: #22272E; letter-spacing:-0.030em;}
+/*========== END OF SITE NAME ===================*/
+.DeleteButtonCSS{ text-align: center !important; }
+.ajax__calendar_container{z-index: 10000; background-color:White;}
+.SelectedRowStyle{background-color:#DEEEF5;}
+.calendar_default{ azimuth:center-right; elevation:above ; richness: 100; }
+
+#ctl00_TopNav
+{
+	background-color:#009dd0; width:945px;margin:100px 0px 0px 0px;
+}
+
+#search
+{
+	margin-top:60px
+}
+
+#content
+{
+	margin-top:20px;
+}

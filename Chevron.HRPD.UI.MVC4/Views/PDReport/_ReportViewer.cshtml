@@ -1,0 +1,38 @@
+﻿@using ReportViewerForMvc;
+
+@{
+    ViewBag.Title = "Report";
+}
+@*<script type="text/javascript">
+    $(function () {
+
+        //allow the validation framework to re-prase the DOM
+        jQuery.validator.unobtrusive.parse();
+
+        //or to give the parser some context, supply it with a selector
+        //jQuery validator will parse all child elements (deep) starting
+        //from the selector element supplied
+        jQuery.validator.unobtrusive.parse("#RepForm");
+
+    });
+
+</script>*@
+<script>
+
+    //$(document).ready(function () {
+    //    alert('Got it')
+    //});
+
+    //$(document).ready(function () {
+    //    $("a[title='Excel']").parent().hide();  // Remove from export dropdown.
+    //    $("a[title='MHTML (web archive)']").parent().hide();
+    //    $("a[title='TIFF file']").parent().hide();
+    //});
+
+</script>
+
+<form id="RepForm"></form>
+<div>
+    @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+</div>
+

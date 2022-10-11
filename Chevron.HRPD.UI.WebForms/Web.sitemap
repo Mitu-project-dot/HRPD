@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+    <siteMapNode url="" title="Root"  description="The Root for the site map" roles="*">
+        <siteMapNode url="Default.aspx" title="Home"  description="Home page"/>
+      <siteMapNode url="Default1.aspx" title="Administrator"  description="Administrator">
+      </siteMapNode>
+      
+          <!-- use roles="[Active Directory Group]" on a sitemap node to restrict access NOTE: RoleManager must be DISABLED -->
+          <!-- use roles="[SQL Server User Role]" on a sitemap node to restrict access NOTE: RoleManager must be ENABLED -->
+        <siteMapNode url="ErrorPage.aspx" title="Errors"  description="Errors" Visible="false">
+        </siteMapNode>
+  </siteMapNode>
+</siteMap>

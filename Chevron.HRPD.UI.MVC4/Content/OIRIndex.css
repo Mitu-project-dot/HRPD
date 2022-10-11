@@ -1,0 +1,76 @@
+﻿/*table {
+        width: 100%;
+    }
+
+thead, tbody, tr, td, th { display: block; }
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+thead th {
+    height: 25px;
+    width: auto;
+    
+}
+
+tbody {
+    height: 320px;
+    overflow-y: auto;
+}
+
+thead {
+    
+}
+
+
+tbody td, thead th {
+    width: 15.2%;
+    float: left;
+    height: 30px;
+    word-wrap:break-word;
+}*/
+
+.header-fixed {
+    width: 100% 
+}
+
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
+    display: block;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.header-fixed > tbody {
+    overflow-y: auto;
+    height: 300px;
+}
+
+.header-fixed > tbody > tr > td,
+.header-fixed > thead > tr > th {
+    width: 14.28%;
+    float: left;
+    white-space:nowrap;
+    height:30px;
+}
+
+.long-text {
+  width: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}

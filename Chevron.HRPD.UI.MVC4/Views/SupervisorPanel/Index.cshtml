@@ -1,0 +1,245 @@
+﻿@model  IEnumerable<Chevron.HRPD.BusinessEntities.Employee_PD_Info>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+                  
+                       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        
+    <script type="text/javascript">
+
+        $(document).ready(function ()
+            
+
+        {
+
+
+            var year = $("#PD_Year").val();
+
+            if (year == '2018' || year == '2019') {
+
+                $('#btnreview').hide();
+                $('#btnmail').hide();
+                
+                $('#threview').hide();
+
+            }
+            else {
+                $('#btnreview').show();
+                $('#btnmail').show();
+
+
+
+            }
+
+
+
+          
+
+            
+        });
+                               </script>
+
+      @using (Html.BeginForm())
+{
+
+
+    <fieldset style="width:945px">
+        <br />
+
+
+        <div style="width:100%; text-align: center; font-weight:bold; margin-bottom:15px; text-decoration: underline;">
+            <h3>Supervisor Dashboard</h3>
+            <a href="~/docs/SA_USER WALKTHROUGH_SUPERVISOR.docx" class="icon-word"
+               target="_blank">Supervisor Walkthrough</a>
+        </div>
+
+
+        <table style="width:945px; margin-left:15%; border-style:hidden; background-color:#f5f2f2">
+
+
+            <tr>
+
+
+
+                <td style="border-style:hidden; width:100px">
+
+                    @Html.DropDownList("PD_Year", new List<SelectListItem>
+{
+
+
+new SelectListItem{ Text="PD Year", Value = "PD Year" },
+new SelectListItem{ Text="2020", Value = "2020" },
+
+new SelectListItem{ Text="2018", Value = "2018" },
+new SelectListItem{ Text="2019", Value = "2019" },
+
+
+
+
+}, new
+{
+
+style = "width: 200px",
+id = "PD_Year",
+
+
+})
+
+
+
+                </td>
+
+
+                <td style="border-style:hidden;width:100px">
+                    <button type="submit" id="dsa" name="command" value="search" class="btn btn-primary">Search</button>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                </td>
+
+
+            </tr>
+            
+        </table>
+
+      
+
+
+        @if (TempData["Not_found"] != null)
+        {
+
+
+            <script type="text/javascript">
+
+                                   var Not_found = "@TempData["Not_found"]";
+                                   swal(Not_found);
+
+            </script>
+
+        }
+
+
+    </fieldset>
+      }
+          <br/>
+
+    
+         <div style="height: 500px;">
+                           
+
+
+
+
+                           <div style="width:100%; text-align: center;  margin-bottom:15px;">
+                              
+                             
+                            
+
+                           @if (TempData["Success"] != null)
+                           {
+
+                               <script type="text/javascript">
+
+                                   window.onload = function () {
+
+                                       alert("@TempData["Success"]");
+
+                                   };
+
+                               </script>
+
+                           }
+                           
+
+                       
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)*@
+
+
+                           <table class="table table-bordered">
+
+
+                               <tr>
+                                   <th>Employee Number</th>
+                                   <th>Name</th>
+                                   <th>CAI</th>
+                                   <th>Department</th>
+                                   <th>Designation</th>
+                                   <th>Supervisor Name</th>
+                                   <th>PD Year</th>
+                                   <th >Show Letter</th>
+                                   <th id="threview">
+                                       Review & Send Mail
+                                   </th>
+                                  
+
+
+
+
+                               </tr>
+
+                               <tbody>
+                                   @foreach (var item in Model)
+                                   {
+                                       <tr>
+                                           @*<th scope="row">@item.Employee_Number</th>*@
+                                           <td>@item.Employee_Number</td>
+                                           <td>@item.Employee_Name</td>
+                                           <td>@item.CAI</td>
+                                           <td>@item.Department</td>
+                                           <td>@item.Designation</td>
+                                           <td>@item.Supervisor_Name</td>
+                                           <td>@item.PD_Year</td>
+                                           <td>
+                                               @Html.ActionLink("SA Letter", "Create", new { id = item.CAI, PD_Year = item.PD_Year, name = "SA Letter" })
+                                           </td>
+                                           <td>
+                                               @{
+
+                                       if (item.PD_Year == "2020")
+                                       {
+                                        @Html.ActionLink("Review & Send Mail", "SupervisorMailToIndividual", new { id = item.CAI, PD_Year = item.PD_Year })
+
+                                       }
+                                       else
+                                       {
+                                        
+                                                <h6>Reviewed</h6>
+                                       }
+}
+                                                    </td>
+                                       </tr>
+                                   }
+                               </tbody>
+                           </table>
+
+                           @*<fieldset style="width:1000px">*@
+
+                           <div class="row">
+
+                               <div class="col-sm-4" style="margin-top:-10px ;height: 50px">
+                               </div>
+
+                               <div class="col-sm-4" style="width:700px; align-content: center;">
+
+                                   <button type="submit" id="btnAllRpt" class="btn btn-primary" style="width:100px" onclick="location.href='@Url.Action("AllReportForDirectSupervisor", "SupervisorPanel")' ">All Report</button>
+                                   <button type="button" id="btnreview" class="btn btn-warning" style="width:130px" onclick="location.href='@Url.Action("SupervisorReviewUpdate", "SupervisorPanel")' ">Supervisor Review</button>
+                                   <button type="button" id="btnmail" class="btn btn-success" style="width:130px" onclick="location.href='@Url.Action("SupervisorMailToEmployee", "SupervisorPanel")' ">Send Mail To All</button>
+
+                                   @*<button type="submit" name="command" value="Create" style="width:100px" class="btn btn-primary">Report</button>*@
+                                   @*<button type="submit" id="btnAllRpt" class="btn btn-primary" style="width:100px">All Report</button>*@
+                                  
+                               </div>
+                               </div>
+
+                               @*</fieldset>*@
+                           </div>
+
+
+</div>
+
+      
+
+             
+           

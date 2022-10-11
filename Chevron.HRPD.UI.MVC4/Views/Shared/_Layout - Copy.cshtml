@@ -1,0 +1,136 @@
+﻿@using Chevron.HRPD.UI.MVC4.Helpers;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+
+    <link href="@Url.Content("~/Content/ibs/css/core.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ibs/css/custom.css")" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @RenderSection("HeadContent", required: false)
+</head>
+
+
+<body class="@ViewBag.Layout">
+    <div id="page">
+        <div id="header">
+            <ul id="toplinks" class="horizontal global" title="Chevron Global Links">
+                <li><a href="http://myinside.chevron.com/">Inside Home</a></li>
+                <li><a href="http://onesearch.chevron.com/">OneSearch</a></li>
+                <li><a href="http://whitepages.chevron.com/">People Finder</a></li>               
+            </ul>
+            <img src="@Url.Content("~/content/IBS/images/hallmark.png")" class="hallmark" alt="Chevron Hallmark" style="height:61px;width:54px;border-width:0px;" />
+            
+          
+            <div class="sitename" id="sitename">
+                <div id="sitenameTitle">BPC PD Information</div>
+                <div style=" margin-top :-30px; color:#009dd9;"  id=" sitenamedesc">Chevron bangladesh</div>
+                <div style=" margin-top :-25px; margin-left:700px; color:#009dd9; font-size:small ">
+                   @ViewBag.CurrentUser
+                </div>
+            </div>                     
+           @* <div class="topnav">
+    @Html.Raw(Html.Menu("topnav", "mainSiteMapProvider"))
+            </div>*@
+          
+            <div class="topnav" style="top: 117px; position: absolute; height:35px; width: 100%; ">
+                @*<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">*@
+                <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #009DD0 !important;">
+
+                    <div class="container" >                  
+                        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav mr-auto">
+                                <li style="font-weight:bold; color: #fff;">@Html.ActionLink("Home", "Index", "PDDataUploader")</li>
+                               <li class="nav-item"><a href="/" class="nav-link">PD Data Upload</a></li>
+    @* <li class="nav-item"><a href="/Home/About" class="nav-link">PD Reports</a></li>
+    <li class="nav-item"><a href="/Home/Contact" class="nav-link">Supervisor Notification</a></li>
+    <li class="nav-item"><a href="/Home/Contact" class="nav-link">MY PD</a></li>
+    <li class="nav-item"><a href="/Home/Contact" class="nav-link">MY Reports</a></li>*@
+                            </ul>
+
+                            @*<ul class="nav navbar-nav navbar-right mr-auto">
+                                <li class="nav-item"><a href="/Account/Register" id="registerLink" class="nav-link">Register</a></li>
+                                <li class="nav-item"><a href="/Account/Login" id="loginLink" class="nav-link">Log in</a></li>
+                            </ul>*@
+
+                        </div>
+                    </div>
+                </nav>                
+            </div>
+
+            @*<div id="search">
+                <input type="text" id="SearchTextBox" value="Find with OneSearch" class="searchfield" onkeypress="javascript:if (event.keyCode == 13) { FindWithOneSearch(); return false; }" />
+                <a href="#" onclick="javascript:FindWithOneSearch(); return false;" id="LinkButton1" class="arrow-button">Go</a>
+            </div>*@
+
+            @RenderSection("WelcomeMessage", required: false)
+        </div>
+        <div id="content">
+            <div id="band">@RenderSection("momentumBand", required: false)</div>
+            <div id="column1" class="column">
+                @Html.Raw(Html.Menu("sidenav", "mainSiteMapProvider"))
+                @RenderSection("FirstColumn", required: false)
+                @RenderBody()
+
+            </div>
+            <div id="column2" class="column">
+                @*@RenderBody()*@
+            </div>
+            <div id="column3" class="column">
+                @RenderSection("ThirdColumn", required: false)
+            </div>
+            <div id="column-right" class="column">
+                @RenderSection("ColumnRight", required: false)
+            </div>
+        </div>
+        <ul id="footer" class="horizontal global">
+            <li>Last Update: @ApplicationSettings.LastUpdated</li>
+            <li id="copyright">&#169; @ApplicationSettings.Copyright</li>
+            <li id="confidential">Company Confidential</li>
+            <li>Opco: <a href="@ApplicationSettings.OperatingCompanyLink">@ApplicationSettings.OperatingCompanyName</a></li>
+        </ul>
+        <!-- Contacts -->
+        <ul id="contacts" class="horizontal global">
+            <li>Content Contact: <a href="@ApplicationSettings.ContentContactLink">@ApplicationSettings.ContentContactName</a></li>
+            <li>Technical Contact: <a href="@ApplicationSettings.TechnicalContactLink">@ApplicationSettings.TechnicalContactName</a></li>
+            @if (ApplicationSettings.ShowVersionInformation)
+            {
+                <li>Version: @ApplicationSettings.ApplicationVersion</li>
+                <li>Environment: @ApplicationSettings.Environment</li>
+            }
+        </ul>
+    </div>
+    <div id="overlay">
+        <div class="inside">
+            <a class="close">Close</a>
+            <div id="overlay-content">
+                <div id="overlay-dync" class="frame"></div>
+                @RenderSection("OverlayContent", required: false)
+            </div>
+        </div>
+        <div class="bg"></div>
+    </div>
+
+   <script src="/Content/IBS/js/core.js" type="text/javascript"></script>
+    <script src="/Content/IBS/js/custom.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/cufon-yui.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/interstate_400.font.js")" type="text/javascript"></script>
+    @RenderSection("Scripts", required: false)
+    <script type="text/javascript">
+        Cufon.replace('#sitename');
+        Cufon.replace('h1');
+    </script>
+
+    @RenderSection("FootContent", required: false)
+</body>
+</html>

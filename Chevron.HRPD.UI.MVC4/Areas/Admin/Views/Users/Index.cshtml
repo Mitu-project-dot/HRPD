@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Chevron.ITRC_iDACS.BusinessEntities.User>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.Layout = "layout-16";
+}
+
+@section FirstColumn {
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CAI)
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAI)
+        </td>
+        <td>
+            @item.FullName
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate, "ShortDateTime") by @Html.DisplayFor(modelItem => item.CreatedByUser.CAI)
+        </td>
+        <td>
+            @if(item.UpdatedBy.HasValue) {
+                <span>@Html.DisplayFor(modelItem => item.UpdateDate, "ShortDateTime") by @Html.DisplayFor(modelItem => item.UpdatedByUser.CAI)</span>
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { CAI=item.CAI }) |
+            @Html.ActionLink("Delete", "Delete", new { CAI=item.CAI })
+        </td>
+    </tr>
+}
+
+</table>
+}

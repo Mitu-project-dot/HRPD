@@ -1,0 +1,628 @@
+﻿@using Chevron.HRPD.UI.MVC4.Helpers;
+@{
+    ViewBag.Title = "Phone View";
+}
+
+<script>
+    function goPage(url, trans, rev) {
+        $.mobile.changePage(url, { transition: trans, reverse: rev });
+    }
+</script>    
+
+<div data-role="page" id="one" data-theme="f">
+    <header data-role="header">            
+        <img src="@Url.Content("~/content/IBS/images/hallmark.png")" class="hallmark" alt="Chevron Hallmark" />
+        <img src="@Url.Content("~/content/Mobile/images/sitename_m.gif")" class="sitename" alt="Site Name - Site Description" />
+    </header>
+
+    <div class="txtType1">Note: These are only code pattern examples and are <u>not defined as brand standard</u>. </div>
+
+    <div data-role="content">	
+
+	    <h2>Phone - Choose an Example</h2>
+            <ul data-role="listview" data-inset="true" data-theme="f">    
+       
+                <li class="txtWhiteContainer" onclick="location.href='#swipe'">
+                    Swipe
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#swipeLeft'">
+                    SwipeLeft
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#swipeRight'">
+                    SwipeRight
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#tap'">
+                    Tap
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#taphold'">
+                    TapHold
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#navswipe'">
+                    Page Navigation with Swipe
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#turn'">
+                    Page Turn
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#flip'">
+                    Page Flip
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#pop'">
+                    Page Pop
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#flow'">
+                    Page Flow
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#fade'">
+                    Page Fade
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#slidefade'">
+                    Page SlideFade
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#slide'">
+                    Page Slide
+                </li>
+                <li class="txtWhiteContainer" onclick="location.href='#slideup'">
+                    Page SlideUp
+                </li>
+                 <li class="txtWhiteContainer" onclick="location.href='#slidedown'">
+                    Page SlideDown
+                </li>
+
+            </ul>
+	        <br /><br />
+        </div>
+
+</div>
+
+<div data-role="page" id="swipe" data-theme="f">
+ 
+	<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image"class="btn-back" style="border:none" onclick="javascript: window.history.back();" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Swipe</label>
+    </div>
+    <div data-role="content">
+        <div class="txtType2">Swipe the rectangle to change the color:</div>
+       
+        <div class="boxSwipe"></div>
+
+     </div>
+
+<script>$(function () {
+    $('div.boxSwipe').on('swipe', swipeHandler);
+    function swipeHandler(event) {
+        if ($(this).hasClass('swipe')) {
+            $(event.target).removeClass('swipe');
+        }
+        else {
+            $(event.target).addClass('swipe');
+        }
+    }
+});
+</script>
+
+</div>
+
+<div data-role="page" id="swipeLeft" data-theme="f">
+ 
+	<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image"class="btn-back" style="border:none" onclick="javascript: window.history.back();" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Swipe Left</label>
+    </div>
+    <div data-role="content">
+        <div class="txtType2">Swipe the rectangle to the left to change the color:</div>
+       
+        <div class="boxSwipeleft"></div>
+
+     </div>
+
+<script>$(function () {
+    $('div.boxSwipeleft').on('swipeleft', swipeleftHandler);
+    function swipeleftHandler(event) {
+        if ($(this).hasClass('swipeleft')) {
+            $(event.target).removeClass('swipeleft');
+        }
+        else {
+            $(event.target).addClass('swipeleft');
+        }
+    }
+});
+</script>
+
+</div>
+
+<div data-role="page" id="swipeRight" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: window.history.back();" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">SwipeRight</label>
+    </div>
+   <div data-role="content">
+    <div class="txtType2">Swipe the rectangle to the right to change the color:</div>
+    
+
+        <div class="boxSwiperight"></div>
+
+     </div>
+
+<script>$(function () {
+    $('div.boxSwiperight').on('swiperight', swiperightHandler);
+    function swiperightHandler(event) {
+        if ($(this).hasClass('swiperight')) {
+            $(event.target).removeClass('swiperight');
+        }
+        else {
+            $(event.target).addClass('swiperight');
+        }
+    }
+});
+
+</script>
+</div>
+
+<div data-role="page" id="back" data-theme="f" class="swipeLeft">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'turn');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Swipe Left to Return</label>
+    </div>
+  <div data-role="content">
+    <div class="txtType2"><strong>Swipe the page left</strong> to go back.</div>
+       
+    <br /><br />
+    <blockquote class="txtType1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
+        qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+         Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea 
+        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae 
+        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+        <br /><br />
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+         voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+         similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+         facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+         quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
+         autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+         et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+         maiores alias consequatur aut perferendis doloribus asperiores repellat.
+        <br /><br />
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+         voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+         similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+         facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+         quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
+         autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+         et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+         maiores alias consequatur aut perferendis doloribus asperiores repellat.
+
+
+    </blockquote>   
+
+    </div>
+
+    <script>
+        $(function () {
+            $('div.swipeLeft').on('swipeleft', swipeLeftHandler);
+            function swipeLeftHandler(event) { $(goPage('#navswipe', 'slide', false)); }
+        });
+    </script>
+
+</div>
+
+<div data-role="page" id="navswipe" data-theme="f" class="pageSwipe">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'turn');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Swipe to Navigate</label>
+    </div>
+  <div data-role="content">
+    <div class="txtType2"><strong>Swipe the page Left or Right</strong> to see navigation on swipe.</div>
+       
+    <br /><br />
+    <blockquote class="txtType1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
+        qui ratione voluptatem sequi nesciunt. 
+       
+<br /><br />
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+         voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+         similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+         facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+         quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
+         autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+         et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+         maiores alias consequatur aut perferendis doloribus asperiores repellat.  Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+         Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea 
+        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae 
+        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+
+<br /><br />
+    	Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
+        qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+         Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea 
+        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae 
+        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+</blockquote>
+
+    </div>
+
+    <script>
+        $(function () {
+            $('div.pageSwipe').on('swipeleft', swipeLeftHandler);
+            function swipeLeftHandler(event) { $(goPage('#forward', 'slide', false)); }
+
+            $('div.pageSwipe').on('swiperight', swipeRightHandler);
+            function swipeRightHandler(event) { $(goPage('#back', 'slide', true)); }
+        });
+    </script>
+
+</div>
+
+<div data-role="page" id="forward" data-theme="f" class="swipeRight">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'turn');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Swipe Right to Return</label>
+    </div>
+  <div data-role="content">
+    <div class="txtType2"><strong>Swipe the page right</strong> to go back.</div>
+       
+    <br /><br />
+    <blockquote class="txtType1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
+        qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+         Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea 
+        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae 
+        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+    
+<br /><br />
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+         voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+         similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+         facilis est et expedita distinctio. 
+
+<br /><br />
+    	Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
+        qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+         Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea 
+        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae 
+        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+         voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+         similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+         facilis est et expedita distinctio. 
+     </blockquote>   
+
+    </div>
+
+    <script>
+        $(function () {
+            $('div.swipeRight').on('swiperight', swipeRightHandler);
+            function swipeRightHandler(event) { $(goPage('#navswipe', 'slide', true)); }
+        });
+    </script>
+
+</div>
+
+<div data-role="page" id="tap" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: window.history.back();" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Tap</label>
+    </div>
+   <div data-role="content">
+    <div class="txtType2">Tap the rectangle to change the color:</div>    
+
+        <div class="boxtap"></div>
+
+     </div>
+
+<script>$(function () {
+    $('div.boxtap').on('tap', tapHandler);
+    function tapHandler(event) {
+        if ($(this).hasClass('tap')) {
+            $(event.target).removeClass('tap');
+        }
+        else {
+            $(event.target).addClass('tap');
+        }
+    }
+});
+
+</script>
+</div>
+
+<div data-role="page" id="taphold" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'flip');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">TapHold</label>
+    </div>
+  <div data-role="content">
+    <div class="txtType2">Long-Press (taphold) the rectangle to the left to change its' color:</div>    
+
+        <div class="boxtaphold"></div>
+
+     </div>
+
+<script>$(function () {
+    $('div.boxtaphold').on('taphold', tapholdHandler);
+    function tapholdHandler(event) {
+        if ($(this).hasClass('taphold')) {
+            $(event.target).removeClass('taphold');
+        }
+        else {
+            $(event.target).addClass('taphold');
+        }
+    }
+});
+
+</script>
+
+</div>
+
+
+<div data-role="page" id="turn" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'turn');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Page Turn on Back</label>
+    </div>
+  <div data-role="content">
+    <div class="txtType2">Tap the button to see the <strong>Turn</strong> Page Transition:</div>
+       
+    <br /><br />
+    <blockquote class="txtType1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
+        qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+         Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea 
+        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae 
+        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+    </blockquote>   
+
+      <br /><br />
+      <div>
+            <input type="button" id="btnTurn"  onclick="javascript: goPage('#one', 'turn');"  title="Page Turn" value="Page Turn" data-inline="true"  data-role="button" />
+      </div>
+
+    </div>
+
+</div>
+    
+
+<div data-role="page" id="flip" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'flip');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Page Flip on Back</label>
+    </div>
+  <div data-role="content">
+    <div class="txtType2">Tap the button to see the <strong>Flip</strong> Page Transition:</div> 
+      
+    <br /><br />
+    <blockquote class="txtType1">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+         voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+         similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+         facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+         quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
+         autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+         et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+         maiores alias consequatur aut perferendis doloribus asperiores repellat.
+    </blockquote>   
+
+     <br /><br />
+      <div>
+            <input type="button" id="btnFlip" onclick="javascript: goPage('#one', 'flip');"  title="Page Flip" value="Page Flip" data-inline="true"  data-role="button" />
+      </div>
+
+     </div>
+
+</div>
+
+<div data-role="page" id="pop" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'pop');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Page Pop on Back</label>
+    </div>
+  <div data-role="content" >
+    <div class="txtType2">Tap the button to see the <strong>Pop</strong> Page Transition:</div>
+    <br /><br />
+    <blockquote class="txtType1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
+        qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+         Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea 
+        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae 
+        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+    </blockquote>   
+
+    <br /><br />
+    <div>
+        <input type="button" id="btnPop"  onclick="javascript: goPage('#one', 'pop');"  title="Page Pop" value="Page Pop" data-inline="true"  data-role="button" />
+    </div>
+
+ </div>
+
+</div>
+
+<div data-role="page" id="flow" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'flow');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Page Flow on Back</label>
+    </div>
+  <div data-role="content" >
+    <div class="txtType2">Tap the button to see the <strong>Flow</strong> Page Transition:</div>    
+    <br /><br />
+    <blockquote class="txtType1">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+         voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+         similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+         facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+         quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
+         autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+         et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+         maiores alias consequatur aut perferendis doloribus asperiores repellat.
+    </blockquote>
+    
+    <br /><br />
+    <div>
+        <input type="button" id="btnFlow"  onclick="javascript: goPage('#one', 'flow');"  title="Page Flow" value="Page Flow" data-inline="true"  data-role="button" />
+    </div>
+
+ </div>
+
+</div>
+
+<div data-role="page" id="fade" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'fade');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Page Fade on Back</label>
+    </div>
+  <div data-role="content" >
+    <div class="txtType2">Tap the button to see the <strong>Fade</strong> Page Transition:</div>
+    <br /><br />
+    <blockquote class="txtType1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
+        qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+         Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea 
+        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae 
+        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+    </blockquote>    
+
+    <br /><br />
+    <div>
+        <input type="button" id="btnFade"  onclick="javascript: goPage('#one', 'fade');"  title="Page Fade" value="Page Fade" data-inline="true"  data-role="button" />
+    </div>
+
+ </div>
+
+</div>
+
+<div data-role="page" id="slidefade" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'slidefade');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Page SlideFade on Back</label>
+    </div>
+  <div data-role="content" >
+    <div class="txtType2">Tap the button to see the <strong>SlideFade</strong> Page Transition:</div>
+    <br /><br />
+    <blockquote class="txtType1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
+        qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+         Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea 
+        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae 
+        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+    </blockquote>    
+
+    <br /><br />
+    <div>
+        <input type="button" id="btnSlidefade"  onclick="javascript: goPage('#one', 'slidefade');"  title="Page Slide Fade" value="Page Slide Fade" data-inline="true"  data-role="button" />
+    </div>
+
+ </div>
+
+</div>
+
+<div data-role="page" id="slide" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'slide');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Page Slide on Back</label>
+    </div>
+  <div data-role="content" >
+    <div class="txtType2">Tap the button to see the <strong>Slide</strong> Page Transition:</div>
+    <br /><br />
+    <blockquote class="txtType1">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+         voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+         similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+         facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+         quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
+         autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+         et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+         maiores alias consequatur aut perferendis doloribus asperiores repellat.
+    </blockquote>    
+
+    <br /><br />
+    <div>
+        <input type="button" id="btnSlide"  onclick="javascript: goPage('#one', 'slide');"  title="Page Slide" value="Page Slide" data-inline="true"  data-role="button" />
+    </div>
+
+ </div>
+
+</div>
+
+<div data-role="page" id="slideup" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'slideup');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Page Slide Up on Back</label>
+    </div>
+   <div data-role="content" >
+    <div class="txtType2">Tap the button to see the <strong>Slide Up</strong> Page Transition:</div>
+    <br /><br />
+    <blockquote class="txtType1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
+        qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+         Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea 
+        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae 
+        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+    </blockquote>    
+
+    <br /><br />
+    <div>
+        <input type="button" id="btnSlideup"  onclick="javascript: goPage('#one', 'slideup');"  title="Page Slide Up" value="Page Slide Up" data-inline="true"  data-role="button" />
+    </div>
+
+ </div>
+
+</div>
+
+<div data-role="page" id="slidedown" data-theme="f">
+ 
+<div data-role="header"  data-inset="false" data-theme="f" class="txtScreenTitle">
+      <input type="image" class="btn-back" style="border:none" onclick="javascript: goPage('#one', 'slidedown');" src="~/Content/Mobile/images/btn-back_sm.png"/>
+       <label  class="txtType3">Page Slide Down on Back</label>
+    </div>
+   <div data-role="content" >
+    <div class="txtType2">Tap the button to see the <strong>Slide Down</strong> Page Transition:</div> 
+    <br /><br />
+    <blockquote class="txtType1">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+         voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+         similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+         facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+         quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
+         autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+         et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+         maiores alias consequatur aut perferendis doloribus asperiores repellat.
+    </blockquote>   
+
+    <br /><br />
+    <div>
+        <input type="button" id="btnSlidedown"  onclick="javascript: goPage('#one', 'slidedown');"  title="Page Slide Down" value="Page Slide Down" data-inline="true"  data-role="button" />
+    </div>
+
+</div>
+
+</div>

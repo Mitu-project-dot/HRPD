@@ -1,0 +1,76 @@
+﻿@model UserViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    ViewBag.Layout = "layout-16";
+}
+
+
+@section FirstColumn {
+<h2>Edit User - @Model.user.FullName</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>User Details</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.user.CAI)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.user.CAI)
+            @Html.ValidationMessageFor(model => model.user.CAI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.user.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.user.FirstName)
+            @Html.ValidationMessageFor(model => model.user.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.user.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.user.LastName)
+            @Html.ValidationMessageFor(model => model.user.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.user.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.user.Email)
+            @Html.ValidationMessageFor(model => model.user.Email)
+        </div>
+        <br />
+        
+        
+        @Html.Partial("RoleList", Model)
+
+        @Html.HiddenFor(model => model.user.CAI)
+        @Html.HiddenFor(model => model.user.ID)
+        @Html.HiddenFor(model => model.user.CreatedBy)
+        @Html.HiddenFor(model => model.user.CreateDate)
+        @Html.HiddenFor(model => model.user.Deleted)
+        @Html.HiddenFor(model => model.user.UpdatedBy)
+        @Html.HiddenFor(model => model.user.UpdateDate)
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+    }
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
